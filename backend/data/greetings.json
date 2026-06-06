@@ -24,5 +24,14 @@
     "Greetings! I can help you with admissions, fees, courses, placements, and more about AITD Kanpur. Ask away!",
     "Hello! I am your AITD Kanpur enquiry assistant. Feel free to ask any question about the institute.",
     "Welcome! I can answer questions about AITD Kanpur — admissions, departments, hostel, placements, and other information."
-  ]
+  ],
+  "identity_queries": [
+    "who are you",
+    "what is your name",
+    "what are you",
+    "tell me about yourself",
+    "who is this",
+    "your identity"
+  ],
+  "identity_response": "Hello! I am the official enquiry assistant for Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur. I am here to help you with information about admissions, fees, courses, placements, hostel facilities, departments, faculty, and other AITD-related matters. How can I assist you today?"
 }

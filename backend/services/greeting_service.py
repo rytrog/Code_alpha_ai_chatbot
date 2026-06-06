@@ -12,10 +12,15 @@ _DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "greetings.json"
 with open(_DATA_PATH, "r", encoding="utf-8") as _f:
     _GREETINGS_DATA = json.load(_f)
 
-_GREETING_WORDS: list[str] = [g.lower() for g in _GREETINGS_DATA.get("greetings", [])]
-_RESPONSES: list[str] = _GREETINGS_DATA.get("responses", [
+_GREETING_WORDS = [g.lower() for g in _GREETINGS_DATA.get("greetings", [])]
+_RESPONSES = _GREETINGS_DATA.get("responses", [
     "Hello! Welcome to the University Assistant. How can I help you today?"
 ])
+_IDENTITY_QUERIES = [i.lower() for i in _GREETINGS_DATA.get("identity_queries", [])]
+_IDENTITY_RESPONSE = _GREETINGS_DATA.get(
+    "identity_response",
+    "Hello! I am the official enquiry assistant for AITD Kanpur."
+)
 
 
 def check_greeting(message: str) -> str | None:
@@ -24,10 +29,20 @@ def check_greeting(message: str) -> str | None:
     otherwise return None.  No AI call is made.
     """
     msg = message.lower().strip()
+    
+    # Strip basic trailing punctuation for exact comparison
+    clean_msg = msg.rstrip("?!.,;:")
+
+    # Check identity queries first
+    for query in _IDENTITY_QUERIES:
+        if clean_msg == query:
+            return _IDENTITY_RESPONSE
 
     # Check if the entire message is a greeting or starts with one
     for word in _GREETING_WORDS:
-        if msg == word or msg.startswith(word + " ") or msg.startswith(word + "!") or msg.startswith(word + ","):
+        if clean_msg == word or clean_msg.startswith(word + " ") or clean_msg.startswith(word + "!") or clean_msg.startswith(word + ","):
             return random.choice(_RESPONSES)
 
     return None
+
+
