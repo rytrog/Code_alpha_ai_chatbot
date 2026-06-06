@@ -25,7 +25,7 @@ services:
   backend:
     build:
       context: ..
-      dockerfile: deployment/Dockerfile
+      dockerfile: Dockerfile
     container_name: university_ai_backend
     ports:
       - "8000:8000"
