@@ -1,0 +1,28 @@
+{
+  "greetings": [
+    "hello",
+    "hi",
+    "hey",
+    "greetings",
+    "good morning",
+    "good afternoon",
+    "good evening",
+    "good night",
+    "howdy",
+    "hola",
+    "namaste",
+    "hii",
+    "helloo",
+    "hiii",
+    "yo",
+    "sup",
+    "how are you"
+  ],
+  "responses": [
+    "Hello! Welcome to the AITD Kanpur Assistant. How can I help you today?",
+    "Hi there! I am here to assist you with queries about Dr. Ambedkar Institute of Technology for Divyangjan, Kanpur. What would you like to know?",
+    "Greetings! I can help you with admissions, fees, courses, placements, and more about AITD Kanpur. Ask away!",
+    "Hello! I am your AITD Kanpur enquiry assistant. Feel free to ask any question about the institute.",
+    "Welcome! I can answer questions about AITD Kanpur — admissions, departments, hostel, placements, and other information."
+  ]
+}

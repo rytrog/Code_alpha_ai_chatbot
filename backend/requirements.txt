@@ -1,0 +1,27 @@
+# ── University AI Chatbot — Python Dependencies ──
+
+# Web framework
+fastapi>=0.115.9
+uvicorn[standard]>=0.34.0
+python-multipart>=0.0.20
+
+# Database
+sqlalchemy[asyncio]>=2.0.40
+asyncpg>=0.30.0
+greenlet>=3.2.0
+
+# Configuration
+pydantic-settings>=2.9.0
+python-dotenv>=1.1.0
+
+# AI / LLM
+google-genai>=1.16.0
+
+# Vector database
+chromadb>=1.0.0
+
+# PDF processing
+PyMuPDF>=1.25.0
+
+# Utilities
+aiofiles>=24.1.0

@@ -1,0 +1,281 @@
+══════════════════════════════════════════════════════════════
+    UNIVERSITY AI CHATBOT — RUN INSTRUCTIONS
+══════════════════════════════════════════════════════════════
+
+PREREQUISITES
+─────────────
+  ✓  Python 3.11 or higher
+  ✓  PostgreSQL 14 or higher (running on localhost:5432)
+  ✓  Google Gemini API Key (get from https://aistudio.google.com/apikey)
+
+
+══════════════════════════════════════════════════════════════
+STEP 1: INSTALL PYTHON DEPENDENCIES
+══════════════════════════════════════════════════════════════
+
+    cd l:\university-ai\backend
+    pip install -r requirements.txt
+
+
+══════════════════════════════════════════════════════════════
+STEP 2: SETUP POSTGRESQL DATABASE
+══════════════════════════════════════════════════════════════
+
+Option A: Using pgAdmin or psql CLI:
+
+    CREATE DATABASE university_ai;
+
+Option B: Using command line (if psql is in PATH):
+
+    psql -U postgres -c "CREATE DATABASE university_ai;"
+
+  Default connection: postgres:postgres@localhost:5432/university_ai
+  (Change in .env if your PostgreSQL uses different credentials)
+
+
+══════════════════════════════════════════════════════════════
+STEP 3: CONFIGURE ENVIRONMENT
+══════════════════════════════════════════════════════════════
+
+    cd l:\university-ai\backend
+    copy .env.example .env
+
+  Then open .env and set your Gemini API key:
+
+    GEMINI_API_KEY=your_actual_api_key_here
+
+  If your PostgreSQL credentials are different:
+
+    DATABASE_URL=postgresql+asyncpg://YOUR_USER:YOUR_PASSWORD@localhost:5432/university_ai
+
+
+══════════════════════════════════════════════════════════════
+STEP 4: START THE SERVER
+══════════════════════════════════════════════════════════════
+
+    cd l:\university-ai\backend
+    python app.py
+
+  The server will:
+    ✓ Create all database tables automatically
+    ✓ Seed 15 FAQ entries
+    ✓ Start ChromaDB vector database
+    ✓ Serve the widget and admin panel
+
+  You should see:
+    "INFO: Uvicorn running on http://0.0.0.0:8000"
+
+
+══════════════════════════════════════════════════════════════
+STEP 5: ACCESS THE APPLICATION
+══════════════════════════════════════════════════════════════
+
+  Open in your browser:
+
+  ┌──────────────────────────────────────────────────────────┐
+  │  Widget Demo:   http://localhost:8000/widget/chatbot.html│
+  │  Admin Panel:   http://localhost:8000/admin/dashboard.html│
+  │  Upload Page:   http://localhost:8000/admin/upload.html  │
+  │  Chat Logs:     http://localhost:8000/admin/logs.html    │
+  │  API Docs:      http://localhost:8000/docs               │
+  │  Health Check:  http://localhost:8000/api/health          │
+  └──────────────────────────────────────────────────────────┘
+
+
+══════════════════════════════════════════════════════════════
+STEP 6: UPLOAD UNIVERSITY DATA
+══════════════════════════════════════════════════════════════
+
+  1. Go to http://localhost:8000/admin/upload.html
+  2. Select document type (PDF, Circular, Notice, etc.)
+  3. Drag & drop or click to select your file (.pdf, .txt, .csv)
+  4. Click "Upload & Ingest"
+  5. The system will:
+     - Extract text from the document
+     - Split into chunks
+     - Store in ChromaDB for semantic search
+     - Record metadata in PostgreSQL
+
+  Supported file formats:
+    - PDF   (extracted page by page using PyMuPDF)
+    - TXT   (plain text, one chunk per file)
+    - CSV   (plain text, one chunk per file)
+
+  Maximum file size: 10 MB
+
+
+══════════════════════════════════════════════════════════════
+STEP 7: TEST THE CHATBOT
+══════════════════════════════════════════════════════════════
+
+  1. Go to http://localhost:8000/widget/chatbot.html
+  2. Click the purple chat icon (bottom-right corner)
+  3. Try these test messages:
+
+     ✓  "Hello"                    → Instant greeting (no AI call)
+     ✓  "What is the hostel fee?"  → FAQ answer (no AI call)
+     ✓  "What courses are offered?"→ FAQ answer (no AI call)
+     ✓  "Who won IPL?"             → Rejected (out of scope)
+     ✓  Ask about uploaded docs    → RAG + Gemini answer
+
+  4. Check the admin dashboard for analytics
+
+
+══════════════════════════════════════════════════════════════
+HOW THE 9-STAGE PIPELINE WORKS
+══════════════════════════════════════════════════════════════
+
+  User Question
+       │
+       ├─ 1. Is it a GREETING? (hello, hi, hey) → Instant reply
+       ├─ 2. Normalize question → remove stopwords
+       ├─ 3. Is it in FAQ database? → Database answer
+       ├─ 4. Is it in Answer Cache? → Cached answer
+       ├─ 5. Is it university-related? → Reject if off-topic
+       ├─ 6. Search ChromaDB → Retrieve relevant chunks
+       ├─ 7. Call Gemini 2.5 Flash → Generate answer from context
+       ├─ 8. Save to cache → For future identical questions
+       └─ 9. Return answer to user
+
+  Stages 1-5: NO AI API call (saves costs)
+  Stage 7: Only called when necessary
+
+
+══════════════════════════════════════════════════════════════
+DOCKER DEPLOYMENT (PRODUCTION)
+══════════════════════════════════════════════════════════════
+
+  If you want to deploy with Docker:
+
+    set GEMINI_API_KEY=your_actual_api_key_here
+    cd l:\university-ai\deployment
+    docker-compose up -d --build
+
+  This starts:
+    - PostgreSQL 16 (port 5432)
+    - FastAPI backend (port 8000, 4 workers)
+    - Nginx reverse proxy (port 80)
+
+
+══════════════════════════════════════════════════════════════
+TROUBLESHOOTING
+══════════════════════════════════════════════════════════════
+
+  Problem: "ConnectionRefusedError" on startup
+  Fix:     PostgreSQL is not running. Start it first.
+
+  Problem: AI answers say "AI service is not configured"
+  Fix:     Set GEMINI_API_KEY in your .env file.
+
+  Problem: "No documents ingested" warnings
+  Fix:     Upload PDF/TXT/CSV files via the admin upload page.
+
+  Problem: Out-of-scope for valid university questions
+  Fix:     The scope checker uses keywords. If your question
+           doesn't contain a university keyword, it's rejected.
+           Add keywords to backend/data/university_keywords.json
+
+  Problem: Port 8000 already in use
+  Fix:     Change PORT in .env or kill the existing process:
+           netstat -ano | findstr :8000
+           taskkill /PID <pid> /F
+
+
+══════════════════════════════════════════════════════════════
+API ENDPOINTS REFERENCE
+══════════════════════════════════════════════════════════════
+
+  POST /api/chat          Send a chat message
+       Body: {"message": "your question"}
+
+  POST /api/upload        Upload a document
+       Form: file + source_type
+
+  GET  /api/analytics     Dashboard statistics
+  GET  /api/logs          Paginated chat logs
+  GET  /api/documents     List uploaded documents
+  DELETE /api/documents/1 Delete a document
+  POST /api/rebuild-index Rebuild ChromaDB index
+  GET  /api/health        System health check
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+embeding in a web :
+To embed the chatbot on any other website (like the main university website or a department page), the teacher or HOD only needs to add a single script tag near the bottom of their website's HTML file (just before the closing </body> tag).
+
+Here is the exact code block you should give them:
+<!-- AITD Kanpur AI Chatbot Widget -->
+<script 
+  src="http://YOUR_SERVER_IP:8000/widget/widget.js" 
+  data-api="http://YOUR_SERVER_IP:8000/api/chat">
+</script>
+Features:
+Zero Configuration: The widget is fully self-contained. It automatically loads its own styles, HTML structure, and interactive icon in the bottom-right corner of the page.
+CORS Pre-Configured: The backend in app.py has Cross-Origin Resource Sharing (CORS) enabled for all origins ("*"), meaning external websites can make API requests to it without any blocking issues.
+
+
+How to Install It on Different Platforms:
+1. Plain HTML Website
+Paste the script tag directly into your main HTML file (usually index.html), just before the </body> tag:
+
+html
+...
+  <!-- Chatbot Widget -->
+  <script src="http://YOUR_SERVER_IP:8000/widget/widget.js" data-api="http://YOUR_SERVER_IP:8000/api/chat"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+log bulk csvStep 1: Uploading CSV FAQ...
+Upload Response: {'message': 'FAQ document uploaded and ingested successfully.', 'filename': 'test_verification_faq.csv', 'chunks': 2, 'source_type': 'faq'}
+
+Step 2: Verification of uploaded documents list...
+Found document in list. ID: 4
+
+Step 3: Querying chat API with custom question...
+Chat Response: {'answer': 'The admissions contact is +91-9999999999.', 'source': 'test_verification_faq.csv', 'response_type': 'faq'}
+
+Step 4: Querying chat API with second question (slightly modified to test normalization)...
+Chat Response 2: {'answer': 'The administrative block is at the main entrance.', 'source': 'test_verification_faq.csv', 'response_type': 'faq'}
+
+Step 5: Deleting document...
+Delete Response: {'message': "Document 'test_verification_faq.csv' deleted."}
+
+Step 6: Querying chat API again to verify it is no longer instant...
+Chat Response 3: {'answer': 'I am sorry, but that question is out of scope for the AITD Kanpur Chatbot.', 'source': '', 'response_type': 'out_of_scope'}
+
+Verification successful! Bulk FAQ ingestion works perfectly!
+
+
+
+
+
+
+
+
+
+
+
+

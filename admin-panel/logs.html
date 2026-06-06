@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat Logs — AITD Kanpur Admin</title>
+  <meta name="description" content="View and filter chat interaction logs." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="icon">A</div>
+        <h2>Admin Panel<span>AITD Kanpur Chatbot</span></h2>
+      </div>
+      <nav>
+        <a href="dashboard.html"><span class="nav-icon">&#9632;</span> Dashboard</a>
+        <a href="upload.html"><span class="nav-icon">&#9654;</span> Documents</a>
+        <a href="logs.html" class="active"><span class="nav-icon">&#9660;</span> Chat Logs</a>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <h1 class="page-title">Chat Logs</h1>
+
+      <div class="filters-bar">
+        <input type="date" id="date-filter" />
+        <input type="text" id="search-filter" placeholder="Search questions or answers..." />
+        <button class="btn btn-primary btn-sm" id="filter-btn">Filter</button>
+      </div>
+
+      <div class="card" style="padding:0;overflow:auto;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Question</th>
+              <th>Answer</th>
+              <th>Type</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="logs-body">
+            <tr><td colspan="5" style="text-align:center;padding:24px;color:var(--text-secondary);">Loading logs...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination" id="pagination"></div>
+    </main>
+  </div>
+
+  <script src="js/logs.js"></script>
+</body>
+</html>

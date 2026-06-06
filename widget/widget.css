@@ -1,0 +1,8 @@
+/* Widget CSS — kept for standalone testing; the widget.js auto-injects its own styles */
+/* This file is only used when loading chatbot.html directly for demo/testing */
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f8f9fb;
+  color: #1a1a2e;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — AITD Kanpur Admin</title>
+  <meta name="description" content="Admin dashboard for AITD Kanpur AI Chatbot." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="icon">A</div>
+        <h2>Admin Panel<span>AITD Kanpur Chatbot</span></h2>
+      </div>
+      <nav>
+        <a href="dashboard.html" class="active">
+          <span class="nav-icon">&#9632;</span> Dashboard
+        </a>
+        <a href="upload.html">
+          <span class="nav-icon">&#9654;</span> Documents
+        </a>
+        <a href="logs.html">
+          <span class="nav-icon">&#9660;</span> Chat Logs
+        </a>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <h1 class="page-title">Dashboard</h1>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Questions</div>
+          <div class="stat-value" id="stat-total">--</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Cache Hits</div>
+          <div class="stat-value" id="stat-cache">--</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">AI Calls</div>
+          <div class="stat-value" id="stat-ai">--</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Documents</div>
+          <div class="stat-value" id="stat-docs">--</div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">FAQ Hits</div>
+          <div class="stat-value" id="stat-faq">--</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Greetings</div>
+          <div class="stat-value" id="stat-greet">--</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Out of Scope</div>
+          <div class="stat-value" id="stat-oos">--</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Avg Response</div>
+          <div class="stat-value" id="stat-time">--</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
