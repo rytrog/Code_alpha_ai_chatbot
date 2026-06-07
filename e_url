@@ -1,0 +1,69 @@
+[35mREADME.md[m[36m:[mA production-ready AI chatbot for government university websites. Built with **FastAPI**, **[1;31mPostgreS[mQL**, **ChromaDB**, and **Gemini 2.5 Flash**.
+[35mREADME.md[m[36m:[m- **50+ Concurrent Users**: Async [1;31mPostgreS[mQL + Uvicorn workers
+[35mREADME.md[m[36m:[m- [1;31mPostgreS[mQL 14+
+[35mREADME.md[m[36m:[m# 3. Start [1;31mPostgreS[mQL (if not using Docker)
+[35mREADME.md[m[36m:[m# Ensure [1;31mPostgreS[mQL is running on localhost:5432
+[35mREADME.md[m[36m:[m| `DATABASE_URL` | [1;31mpostgres[mql+asyncpg://... | [1;31mPostgreS[mQL connection |
+[35mRUN_INSTRUCTIONS.txt[m[36m:[m  ✓  [1;31mPostgreS[mQL 14 or higher (running on localhost:5432)
+[35mRUN_INSTRUCTIONS.txt[m[36m:[mSTEP 2: SETUP [1;31mPOSTGRES[mQL DATABASE
+[35mRUN_INSTRUCTIONS.txt[m[36m:[m    psql -U [1;31mpostgres[m -c "CREATE DATABASE university_ai;"
+[35mRUN_INSTRUCTIONS.txt[m[36m:[m  Default connection: [1;31mpostgres[m:[1;31mpostgres[m@localhost:5432/university_ai
+[35mRUN_INSTRUCTIONS.txt[m[36m:[m  (Change in .env if your [1;31mPostgreS[mQL uses different credentials)
+[35mRUN_INSTRUCTIONS.txt[m[36m:[m  If your [1;31mPostgreS[mQL credentials are different:
+[35mRUN_INSTRUCTIONS.txt[m[36m:[m    DATABASE_URL=[1;31mpostgres[mql+asyncpg://YOUR_USER:YOUR_PASSWORD@localhost:5432/university_ai
+[35mRUN_INSTRUCTIONS.txt[m[36m:[m     - Record metadata in [1;31mPostgreS[mQL
+[35mRUN_INSTRUCTIONS.txt[m[36m:[m    - [1;31mPostgreS[mQL 16 (port 5432)
+[35mRUN_INSTRUCTIONS.txt[m[36m:[m  Fix:     [1;31mPostgreS[mQL is not running. Start it first.
+[35marchitecture_scalability_report.md[m[36m:[m| **FAQ Hits** | Stage 2, 3 | ~10 – 30 ms | **50 – 150** | [1;31mPostgreS[mQL connection handshake latency |
+[35marchitecture_scalability_report.md[m[36m:[m| **Cached Answers** | Stage 4 | ~10 – 30 ms | **50 – 150** | [1;31mPostgreS[mQL connection handshake latency |
+[35marchitecture_scalability_report.md[m[36m:[mIn `backend/database/db.py` (lines 78-85), the FastAPI connection dependency opens and closes a new [1;31mPostgreS[mQL connection for **every single request**:
+[35marchitecture_scalability_report.md[m[36m:[m* **Impact:** For every request, the backend performs a full TCP/IP handshake and SSL negotiation, and [1;31mPostgreS[mQL forks a new backend worker process. If 100 students click "Send" at the same time, the system will run out of database connections or experience severe latency.
+[35marchitecture_scalability_report.md[m[36m:[m   Move the FAQ lookup and Gemini Cache out of [1;31mPostgreS[mQL and into **Redis**. Redis serves cache keys in under **1 millisecond** and can handle up to **100,000+ operations/sec**, shielding [1;31mPostgreS[mQL from high read traffic.
+[35marchitecture_scalability_report.md[m[36m:[m   Run ChromaDB as a separate containerized service (or migrate to PgVector inside [1;31mPostgreS[mQL, or use Qdrant/Pinecone). This isolates heavy vector math calculations from the main API server.
+[35mbackend/.env.example[m[36m:[m# ── [1;31mPostgreS[mQL ──
+[35mbackend/.env.example[m[36m:[mDATABASE_URL=[1;31mpostgres[mql+asyncpg://[1;31mpostgres[m:[1;31mpostgres[m@localhost:5432/university_ai
+[35mbackend/api/health.py[m[36m:[m        health["services"]["[1;31mpostgres[mql"] = "connected"
+[35mbackend/api/health.py[m[36m:[m        health["services"]["[1;31mpostgres[mql"] = f"error: {e}"
+[35mbackend/api/health.py[m[36m:[m        logger.error(f"Health - [1;31mPostgreS[mQL: {e}")
+[35mbackend/api/upload.py[m[36m:[m        # Record in [1;31mPostgreS[mQL
+[35mbackend/api/upload.py[m[36m:[m    # Record in [1;31mPostgreS[mQL
+[35mbackend/api/upload.py[m[36m:[m        # Delete dependent cache entries from [1;31mPostgreS[mQL
+[35mbackend/app.py[m[36m:[mModular monolithic architecture with async [1;31mPostgreS[mQL + ChromaDB.
+[35mbackend/config.py[m[36m:[m    # ── [1;31mPostgreS[mQL ──
+[35mbackend/config.py[m[36m:[m    DATABASE_URL: str = "[1;31mpostgres[mql+psycopg://[1;31mpostgres[m:[1;31mpostgres[m@localhost:5432/university_ai"
+[35mbackend/database/db.py[m[36m:[m    user = parsed.username or "[1;31mpostgres[m"
+[35mbackend/services/cache_service.py[m[36m:[mAnswer Cache Service — avoids repeated AI calls via [1;31mPostgreS[mQL.
+[35mbackend/services/faq_service.py[m[36m:[mFAQ Service — answers pre-configured university questions from [1;31mPostgreS[mQL.
+[35mbackend/setup_db.py[m[36m:[mSetup script — creates the 'university_ai' database in [1;31mPostgreS[mQL.
+[35mbackend/setup_db.py[m[36m:[mIt uses psycopg (sync driver) to connect to the default '[1;31mpostgres[m'
+[35mbackend/setup_db.py[m[36m:[m    """Read the [1;31mPostgreS[mQL password from the DATABASE_URL in .env."""
+[35mbackend/setup_db.py[m[36m:[m                # Format: [1;31mpostgres[mql+asyncpg://user:password@host:port/dbname
+[35mbackend/setup_db.py[m[36m:[m    print(f"Connecting to [1;31mPostgreS[mQL as '{user}'...")
+[35mbackend/setup_db.py[m[36m:[m        # Connect to default '[1;31mpostgres[m' database with autocommit
+[35mbackend/setup_db.py[m[36m:[m            dbname="[1;31mpostgres[m",
+[35mbackend/setup_db.py[m[36m:[m        print(f"\nERROR: Could not connect to [1;31mPostgreS[mQL: {e}")
+[35mbackend/setup_db.py[m[36m:[m        print("  1. [1;31mPostgreS[mQL is running")
+[35mbackend/setup_db.py[m[36m:[m        print("  3. The user '[1;31mpostgres[m' exists")
+[35mbackend/test_psycopg.py[m[36m:[m        user="[1;31mpostgres[m",
+[35mdeployment/docker-compose.yml[m[36m:[m  # ── [1;31mPostgreS[mQL Database ──
+[35mdeployment/docker-compose.yml[m[36m:[m  [1;31mpostgres[m:
+[35mdeployment/docker-compose.yml[m[36m:[m    image: [1;31mpostgres[m:16-alpine
+[35mdeployment/docker-compose.yml[m[36m:[m      [1;31mPOSTGRES[m_DB: university_ai
+[35mdeployment/docker-compose.yml[m[36m:[m      [1;31mPOSTGRES[m_USER: [1;31mpostgres[m
+[35mdeployment/docker-compose.yml[m[36m:[m      [1;31mPOSTGRES[m_PASSWORD: [1;31mpostgres[m
+[35mdeployment/docker-compose.yml[m[36m:[m      - pgdata:/var/lib/[1;31mpostgres[mql/data
+[35mdeployment/docker-compose.yml[m[36m:[m      test: ["CMD-SHELL", "pg_isready -U [1;31mpostgres[m"]
+[35mdeployment/docker-compose.yml[m[36m:[m      - DATABASE_URL=[1;31mpostgres[mql+asyncpg://[1;31mpostgres[m:[1;31mpostgres[m@[1;31mpostgres[m:5432/university_ai
+[35mdeployment/docker-compose.yml[m[36m:[m      [1;31mpostgres[m:
+[35merrors_troubleshooting_walkthrough.md[m[36m:[m> `Health - [1;31mPostgreS[mQL: [WinError 1225] The remote computer refused the network connection`
+[35merrors_troubleshooting_walkthrough.md[m[36m:[mFastAPI is trying to connect to [1;31mPostgreS[mQL on port 5432, but the [1;31mPostgreS[mQL database service is either:
+[35merrors_troubleshooting_walkthrough.md[m[36m:[m1. **Verify if [1;31mPostgreS[mQL is running on Windows:**
+[35merrors_troubleshooting_walkthrough.md[m[36m:[m   * Scroll down to locate `[1;31mpostgres[mql-x64-XX` (where `XX` is your version number).
+[35merrors_troubleshooting_walkthrough.md[m[36m:[m     Get-Service -Name [1;31mpostgres[mql*
+[35merrors_troubleshooting_walkthrough.md[m[36m:[m     Start-Service -Name [1;31mpostgres[mql*
+[35merrors_troubleshooting_walkthrough.md[m[36m:[m   * Ensure [1;31mPostgreS[mQL is indeed configured to listen on port `5432`. Check the `[1;31mpostgres[mql.conf` file (typically found in `C:\Program Files\[1;31mPostgreS[mQL\xx\data\`).
+[35merrors_troubleshooting_walkthrough.md[m[36m:[m> `Database startup error: password authentication failed for user "[1;31mpostgres[m"`
+[35merrors_troubleshooting_walkthrough.md[m[36m:[mThe connection password specified in your backend configurations does not match the actual password of the `[1;31mpostgres[m` user inside your database.
+[35merrors_troubleshooting_walkthrough.md[m[36m:[m   DATABASE_URL=[1;31mpostgres[mql+psycopg://[1;31mpostgres[m:[1;31mpostgres[m@localhost:5432/university_ai
+[35merrors_troubleshooting_walkthrough.md[m[36m:[m3. Update the credentials using the format: `[1;31mpostgres[mql+psycopg://[username]:[password]@[host]:[port]/[database_name]`
+[35merrors_troubleshooting_walkthrough.md[m[36m:[m   * Replace the second `[1;31mpostgres[m` with your actual local [1;31mPostgreS[mQL password.
