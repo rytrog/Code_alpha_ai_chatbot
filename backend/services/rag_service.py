@@ -21,11 +21,67 @@ _chroma_client = None
 COLLECTION_NAME = "university_docs"
 
 
+from chromadb import EmbeddingFunction, Documents, Embeddings
+
+class GeminiEmbeddingFunction(EmbeddingFunction):
+    """Custom embedding function using Google Gemini API to save container RAM."""
+    def __init__(self, api_key: str):
+        self.api_key = api_key
+        from google import genai
+        self.client = genai.Client(api_key=api_key)
+
+    def __call__(self, input: Documents) -> Embeddings:
+        if not input:
+            return []
+        try:
+            response = self.client.models.embed_content(
+                model="text-embedding-004",
+                contents=input,
+            )
+            if hasattr(response, "embeddings"):
+                return [e.values for e in response.embeddings]
+            elif hasattr(response, "embedding"):
+                return [response.embedding.values]
+            else:
+                return []
+        except Exception as e:
+            logger.error(f"Gemini remote embedding API call failed: {e}")
+            raise e
+
+
+def _get_embedding_function():
+    """Determine the embedding function based on Gemini API key availability to minimize RAM usage."""
+    api_key = settings.GEMINI_API_KEY
+    if not api_key or api_key == "SET_YOUR_GEMINI_API_KEY_HERE":
+        if settings.LLM_PROVIDER.lower().strip() == "gemini":
+            api_key = settings.LLM_API_KEY
+            
+    if api_key and api_key != "SET_YOUR_GEMINI_API_KEY_HERE":
+        try:
+            logger.info("Testing remote Gemini API for ChromaDB embeddings (text-embedding-004)...")
+            from google import genai
+            client = genai.Client(api_key=api_key)
+            client.models.embed_content(
+                model="text-embedding-004",
+                contents="healthcheck",
+            )
+            logger.info("Using remote Gemini API for ChromaDB embeddings (low memory mode).")
+            return GeminiEmbeddingFunction(api_key=api_key)
+        except Exception as e:
+            logger.warning(
+                f"Failed to verify Gemini API key for embeddings: {e}. "
+                "Falling back to local in-process embeddings (high memory usage!)."
+            )
+            
+    return None
+
+
+
 def _get_client():
     """Get or create the ChromaDB client (lazy singleton)."""
     global _chroma_client
     if _chroma_client is None:
-        logger.info("Initializing ChromaDB client (first access, may download embedding model)...")
+        logger.info("Initializing ChromaDB client (first access)...")
         _chroma_client = chromadb.PersistentClient(
             path=settings.CHROMA_PATH,
             settings=ChromaSettings(anonymized_telemetry=False),
@@ -36,10 +92,30 @@ def _get_client():
 
 def _get_collection():
     """Get or create the university docs collection."""
-    return _get_client().get_or_create_collection(
-        name=COLLECTION_NAME,
-        metadata={"hnsw:space": "cosine"},
-    )
+    ef = _get_embedding_function()
+    if ef is None:
+        from chromadb.utils import embedding_functions
+        ef = embedding_functions.DefaultEmbeddingFunction()
+        
+    try:
+        return _get_client().get_or_create_collection(
+            name=COLLECTION_NAME,
+            embedding_function=ef,
+            metadata={"hnsw:space": "cosine"},
+        )
+    except Exception as e:
+        logger.warning(f"Error loading ChromaDB collection, recreating due to model change/dimension mismatch: {e}")
+        try:
+            _get_client().delete_collection(name=COLLECTION_NAME)
+        except Exception as de:
+            logger.error(f"Could not delete collection: {de}")
+        return _get_client().get_or_create_collection(
+            name=COLLECTION_NAME,
+            embedding_function=ef,
+            metadata={"hnsw:space": "cosine"},
+        )
+
+
 
 
 def retrieve(query: str, n_results: int | None = None) -> list[dict]:
