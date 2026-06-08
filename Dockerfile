@@ -25,5 +25,6 @@ RUN mkdir -p /data/uploads /data/chroma /data/logs
 # Expose FastAPI port
 EXPOSE 8000
 
-# Run with uvicorn (4 workers for 50+ concurrent users)
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4"]
+# Run with uvicorn (1 worker to fit under 512MB Render RAM limit)
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
+
