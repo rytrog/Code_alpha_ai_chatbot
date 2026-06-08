@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurelia University | Excellence in Global Education & Research</title>
+    <meta name="description"
+        content="Welcome to Aurelia University, a world-class higher education institution shaping future leaders through innovation, state-of-the-art research, and global placements. Explore our admissions, academic programs, and vibrant campus life.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="main-header" id="site-header">
+        <div class="header-container">
+            <!-- University Logo -->
+            <a href="#home" class="logo-area" id="logo-link">
+                <img src="assets/images/logo.png" alt="Aurelia University Logo" class="nav-logo" id="header-logo-img">
+                <div class="logo-text">
+                    <span class="univ-name">AURELIA</span>
+                    <span class="univ-sub">UNIVERSITY</span>
+                </div>
+            </a>
+
+            <!-- Mobile Navigation Toggle -->
+            <button class="mobile-nav-toggle" id="menu-toggle-btn" aria-label="Toggle Navigation Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Navigation Menu -->
+            <nav class="nav-menu" id="navigation-menu-links">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#academics" class="nav-link">Academics</a></li>
+                    <li><a href="#admissions" class="nav-link">Admissions</a></li>
+                    <li><a href="#research" class="nav-link">Research</a></li>
+                    <li><a href="#campus-life" class="nav-link">Campus Life</a></li>
+                    <li><a href="#placements" class="nav-link">Placements</a></li>
+                    <li><a href="#events" class="nav-link">Events</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Header Action Items -->
+            <div class="header-actions">
+                <!-- Search Bar -->
+                <div class="search-container" id="nav-search-wrapper">
+                    <input type="text" placeholder="Search courses, faculty..." class="search-input"
+                        id="search-bar-input">
+                    <button class="search-btn" id="search-trigger-btn" aria-label="Submit Search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <!-- Search Results Dropdown -->
+                    <div class="search-results" id="search-dropdown-results"></div>
+                </div>
+
+                <button class="btn btn-secondary-outline" id="student-login-btn">Student Login</button>
+                <button class="btn btn-gold" id="apply-now-btn">Apply Now</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section"
+            style="background-image: linear-gradient(rgba(10, 42, 102, 0.75), rgba(10, 42, 102, 0.45)), url('assets/images/university-hero.png');">
+            <div class="hero-content">
+                <span class="hero-badge">Established 1895 • Ivy League Affiliate</span>
+                <h1 class="hero-title">Shaping Future Leaders Through Excellence in Education</h1>
+                <p class="hero-subtitle">Empowering students with innovation, cutting-edge research, and boundless
+                    global opportunities.</p>
+                <div class="hero-ctas">
+                    <button class="btn btn-gold btn-lg" id="hero-apply-btn">Apply for Admission</button>
+                    <button class="btn btn-white-outline btn-lg" id="hero-tour-btn">
+                        <i class="fa-solid fa-play"></i> Virtual Campus Tour
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Links Float -->
+            <div class="hero-quick-links">
+                <a href="#admissions" class="quick-link-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Admissions 2026</span>
+                </a>
+                <a href="#academics" class="quick-link-card">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Explore Degrees</span>
+                </a>
+                <a href="#research" class="quick-link-card">
+                    <i class="fa-solid fa-flask-vial"></i>
+                    <span>Research Centers</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Quick Statistics Section -->
+        <section class="stats-section" id="statistics-highlights">
+            <div class="section-container stats-grid">
+                <div class="stat-card" data-target="15000" data-suffix="+">
+                    <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                    <div class="stat-number" id="stat-students">0</div>
+                    <div class="stat-label">Active Students</div>
+                </div>
+                <div class="stat-card" data-target="500" data-suffix="+">
+                    <div class="stat-icon"><i class="fa-solid fa-user-tie"></i></div>
+                    <div class="stat-number" id="stat-faculty">0</div>
+                    <div class="stat-label">Faculty Members</div>
+                </div>
+                <div class="stat-card" data-target="120" data-suffix="+">
+                    <div class="stat-icon"><i class="fa-solid fa-school"></i></div>
+                    <div class="stat-number" id="stat-programs">0</div>
+                    <div class="stat-label">Academic Programs</div>
+                </div>
+                <div class="stat-card" data-target="95" data-suffix="%">
+                    <div class="stat-number-wrapper">
+                        <div class="stat-number" id="stat-placement">0</div>
+                    </div>
+                    <div class="stat-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <div class="stat-label">Placement Success Rate</div>
+                </div>
+                <div class="stat-card" data-target="50" data-suffix="+">
+                    <div class="stat-icon"><i class="fa-solid fa-microscope"></i></div>
+                    <div class="stat-number" id="stat-labs">0</div>
+                    <div class="stat-label">Advanced Research Labs</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About University Section -->
+        <section id="about" class="about-section scroll-spy-section">
+            <div class="section-container">
+                <div class="about-grid">
+                    <div class="about-info-panel">
+                        <span class="section-tag">About Aurelia</span>
+                        <h2 class="section-title">A Tradition of Academic Brilliance & Scientific Discovery</h2>
+                        <p class="about-desc">For over a century, Aurelia University has stood at the forefront of
+                            global higher education. We foster an environment of creative inquiry, collaborative problem
+                            solving, and rigorous scholastic work, shaping minds that go on to redefine history.</p>
+
+                        <!-- Tabs Navigation -->
+                        <div class="about-tabs" id="about-tabs-nav">
+                            <button class="tab-btn active" data-tab="mission">Mission & Vision</button>
+                            <button class="tab-btn" data-tab="overview">Campus Overview</button>
+                            <button class="tab-btn" data-tab="rankings">Accreditation & Rankings</button>
+                        </div>
+
+                        <!-- Tabs Content Panels -->
+                        <div class="tab-content active" id="tab-mission">
+                            <div class="tab-inner">
+                                <h4>Our Mission</h4>
+                                <p>To cultivate intellectual depth, promote scientific breakthroughs, and nurture global
+                                    citizens committed to ethical leadership, societal welfare, and professional
+                                    excellence.</p>
+                                <h4>Our Vision</h4>
+                                <p>To stand as a leading global beacon of higher learning, breaking barriers between
+                                    disciplines and engineering sustainable solutions for tomorrow's complex challenges.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="tab-overview">
+                            <div class="tab-inner">
+                                <p>Spread across 250 acres of state-of-the-art campus landscaping, Aurelia features
+                                    architectural brilliance combining classic elegance with eco-sustainable smart
+                                    structures.</p>
+                                <ul class="facility-bullets">
+                                    <li><i class="fa-solid fa-check"></i> 100% solar powered infrastructure</li>
+                                    <li><i class="fa-solid fa-check"></i> Smart-equipped digital classrooms & auditorium
+                                    </li>
+                                    <li><i class="fa-solid fa-check"></i> High-speed gigabit Wi-Fi across every corner
+                                    </li>
+                                    <li><i class="fa-solid fa-check"></i> Eco-friendly transit: Campus bike-share
+                                        program</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="tab-rankings">
+                            <div class="tab-inner">
+                                <div class="rankings-grid">
+                                    <div class="ranking-badge">
+                                        <span class="rank-num">#12</span>
+                                        <span class="rank-name">QS Global Ranking</span>
+                                    </div>
+                                    <div class="ranking-badge">
+                                        <span class="rank-num">#8</span>
+                                        <span class="rank-name">Most Innovative Uni</span>
+                                    </div>
+                                    <div class="ranking-badge">
+                                        <span class="rank-num">A++</span>
+                                        <span class="rank-name">NAAC Accredited</span>
+                                    </div>
+                                    <div class="ranking-badge">
+                                        <span class="rank-num">98%</span>
+                                        <span class="rank-name">Student Satisfaction</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campus Features Cards -->
+                    <div class="about-features-panel">
+                        <div class="feature-spotlight-card">
+                            <div class="feature-card-header">
+                                <i class="fa-solid fa-trophy highlight-gold"></i>
+                                <h3>Outstanding Recognition</h3>
+                            </div>
+                            <p>Awarded "Center of Excellence" in AI and Renewable Energy by the International Science
+                                Commission (2025).</p>
+                        </div>
+                        <div class="feature-spotlight-card">
+                            <div class="feature-card-header">
+                                <i class="fa-solid fa-earth-americas highlight-navy"></i>
+                                <h3>Global Affiliations</h3>
+                            </div>
+                            <p>Active study-abroad student exchange program in partnership with 45+ universities in 18
+                                countries.</p>
+                        </div>
+                        <div class="feature-spotlight-card">
+                            <div class="feature-card-header">
+                                <i class="fa-solid fa-hands-holding-child highlight-gold"></i>
+                                <h3>Comprehensive Aid</h3>
+                            </div>
+                            <p>Over $45 Million allocated annually in scholarships and financial assistance programs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Programs Section -->
+        <section id="academics" class="academics-section scroll-spy-section">
+            <div class="section-container">
+                <div class="text-center-wrapper">
+                    <span class="section-tag">Academic Programs</span>
+                    <h2 class="section-title">Inspiring Curriculums for Global Impact</h2>
+                    <p class="section-subtitle">Choose from diverse disciplines designed to foster real-world skills,
+                        strategic inquiry, and career mastery.</p>
+                </div>
+
+                <div class="programs-grid" id="academics-programs-cards">
+                    <!-- Engineering -->
+                    <div class="program-card">
+                        <div class="program-icon"><i class="fa-solid fa-gears"></i></div>
+                        <h3 class="program-title">Engineering</h3>
+                        <p class="program-text">Study mechanical, aerospace, civil, and environmental engineering with
+                            hands-on lab access.</p>
+                        <a href="#admissions" class="program-link">Learn More <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Computer Science -->
+                    <div class="program-card highlight-card">
+                        <div class="program-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <span class="card-badge">Most Popular</span>
+                        <h3 class="program-title">Computer Science</h3>
+                        <p class="program-text">Specialize in Artificial Intelligence, Cybersecurity, Software
+                            Architecture, and Cloud Systems.</p>
+                        <a href="#admissions" class="program-link">Learn More <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Business Administration -->
+                    <div class="program-card">
+                        <div class="program-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3 class="program-title">Business Administration</h3>
+                        <p class="program-text">Prepares managers and entrepreneurs via case-study methods and top
+                            startup incubations.</p>
+                        <a href="#admissions" class="program-link">Learn More <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Arts & Humanities -->
+                    <div class="program-card">
+                        <div class="program-icon"><i class="fa-solid fa-palette"></i></div>
+                        <h3 class="program-title">Arts & Humanities</h3>
+                        <p class="program-text">Critique literature, explore histories, study design, and cultivate
+                            philosophy.</p>
+                        <a href="#admissions" class="program-link">Learn More <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Medical Sciences -->
+                    <div class="program-card">
+                        <div class="program-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                        <h3 class="program-title">Medical Sciences</h3>
+                        <p class="program-text">Top-tier residency programs, biological research, nursing, and clinical
+                            health studies.</p>
+                        <a href="#admissions" class="program-link">Learn More <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Law -->
+                    <div class="program-card">
+                        <div class="program-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <h3 class="program-title">Law & Policy</h3>
+                        <p class="program-text">Constitutional studies, corporate law, public policy advocacy, and moot
+                            court modules.</p>
+                        <a href="#admissions" class="program-link">Learn More <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Agriculture -->
+                    <div class="program-card">
+                        <div class="program-icon"><i class="fa-solid fa-seedling"></i></div>
+                        <h3 class="program-title">Agriculture</h3>
+                        <p class="program-text">Sustainable farming, crop genetics, digital agrotech, and food security
+                            research.</p>
+                        <a href="#admissions" class="program-link">Learn More <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Research Programs -->
+                    <div class="program-card">
+                        <div class="program-icon"><i class="fa-solid fa-vials"></i></div>
+                        <h3 class="program-title">Research Programs</h3>
+                        <p class="program-text">Interdisciplinary Ph.D. pathways and post-doctoral research projects
+                            with global grants.</p>
+                        <a href="#admissions" class="program-link">Learn More <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admissions Section -->
+        <section id="admissions" class="admissions-section scroll-spy-section">
+            <div class="section-container">
+                <div class="text-center-wrapper">
+                    <span class="section-tag">Join Aurelia</span>
+                    <h2 class="section-title">Admission Process & Details</h2>
+                    <p class="section-subtitle">We select brilliant students based on academic achievements, creative
+                        pursuits, and leadership potential.</p>
+                </div>
+
+                <div class="admissions-split">
+                    <!-- Timeline & Eligibility -->
+                    <div class="timeline-panel">
+                        <h3>Admissions Timeline (Fall 2026)</h3>
+                        <div class="timeline" id="admissions-timeline-list">
+                            <div class="timeline-item active">
+                                <div class="timeline-marker"><i class="fa-solid fa-1"></i></div>
+                                <div class="timeline-content">
+                                    <h4>Online Application Opens</h4>
+                                    <span class="timeline-date">June 15, 2026</span>
+                                    <p>Submit application forms online with academic records and recommendation letters.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"><i class="fa-solid fa-2"></i></div>
+                                <div class="timeline-content">
+                                    <h4>Entrance Examinations & Interviews</h4>
+                                    <span class="timeline-date">July 20 - August 5, 2026</span>
+                                    <p>Participate in online/offline logical screening and personal faculty
+                                        interactions.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"><i class="fa-solid fa-3"></i></div>
+                                <div class="timeline-content">
+                                    <h4>Results Announcement</h4>
+                                    <span class="timeline-date">August 15, 2026</span>
+                                    <p>First merit lists published. Scholarship emails sent to qualifying applicants.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"><i class="fa-solid fa-4"></i></div>
+                                <div class="timeline-content">
+                                    <h4>Fee Deposit & Orientation</h4>
+                                    <span class="timeline-date">September 1, 2026</span>
+                                    <p>Complete academic registration, confirm hostel selection, and join the
+                                        orientation week.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fees & Scholarship Panel -->
+                    <div class="fees-aid-panel">
+                        <div class="fees-card">
+                            <h3>Fee Structure & Scholarships</h3>
+                            <div class="fee-table-wrapper">
+                                <table class="fee-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Program Area</th>
+                                            <th>Tuition (per Sem)</th>
+                                            <th>Hostel & Amenities</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Undergraduate (Eng/CS/Med)</td>
+                                            <td>$12,500</td>
+                                            <td>$3,200</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Undergraduate (Arts/Biz)</td>
+                                            <td>$9,800</td>
+                                            <td>$3,200</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Postgraduate Masters</td>
+                                            <td>$14,000</td>
+                                            <td>$3,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ph.D. / Research</td>
+                                            <td>Fully Funded</td>
+                                            <td>Stipend Paid</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="scholarship-opportunities">
+                                <h4><i class="fa-solid fa-award"></i> Scholarship Programs</h4>
+                                <ul>
+                                    <li><strong>President's Merit Scholarship:</strong> 100% tuition waiver for top 1%
+                                        applicants.</li>
+                                    <li><strong>Women in STEM Initiative:</strong> 50% tuition scholarship for female
+                                        applicants in CS/Engineering.</li>
+                                    <li><strong>Sports & Arts Excellence:</strong> 30% tuition concessions for certified
+                                        national-level achievements.</li>
+                                    <li><strong>Need-based Financial Aid:</strong> Grants up to $8,000 based on verified
+                                        family income brackets.</li>
+                                </ul>
+                            </div>
+
+                            <div class="action-row">
+                                <button class="btn btn-navy" id="download-prospectus-btn">
+                                    <i class="fa-solid fa-file-pdf"></i> Download Prospectus (PDF)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research & Innovation Section -->
+        <section id="research" class="research-section scroll-spy-section">
+            <div class="section-container">
+                <div class="research-header-split">
+                    <div>
+                        <span class="section-tag">Research & Innovation</span>
+                        <h2 class="section-title">Pushing the Boundaries of Human Knowledge</h2>
+                    </div>
+                    <p class="section-intro-text">At Aurelia, our researchers are focused on solving some of the world's
+                        most critical dilemmas: from green hydrogen engines to quantum computation processors.</p>
+                </div>
+
+                <div class="research-grid">
+                    <!-- Column 1: Incubation -->
+                    <div class="research-card">
+                        <div class="research-card-img-wrapper">
+                            <span class="research-card-tag">Incubation Hub</span>
+                            <div class="research-icon-circle"><i class="fa-solid fa-lightbulb"></i></div>
+                        </div>
+                        <div class="research-card-body">
+                            <h3>Startup Incubation & Support</h3>
+                            <p>Our Venture Catalyst Center incubated 24 student-led startups in 2025, securing over $12
+                                Million in seed capital funding.</p>
+                            <a href="#contact" class="read-more-link">Incubation Pathway <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Achievements -->
+                    <div class="research-card">
+                        <div class="research-card-img-wrapper">
+                            <span class="research-card-tag">Achievements</span>
+                            <div class="research-icon-circle"><i class="fa-solid fa-dna"></i></div>
+                        </div>
+                        <div class="research-card-body">
+                            <h3>Recent Breakthroughs</h3>
+                            <p>Aurelia Bio-Science team successfully mapped CRISPR-based gene sequences to halt drought
+                                impact on wheat farming crops.</p>
+                            <a href="#contact" class="read-more-link">Read Research Journal <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Collaborations -->
+                    <div class="research-card">
+                        <div class="research-card-img-wrapper">
+                            <span class="research-card-tag">Collaborations</span>
+                            <div class="research-icon-circle"><i class="fa-solid fa-handshake"></i></div>
+                        </div>
+                        <div class="research-card-body">
+                            <h3>Industry Partnerships</h3>
+                            <p>Joint labs established with Tech Giants and National Labs for collaborative research in
+                                Quantum Hardware and Cyber Defense.</p>
+                            <a href="#contact" class="read-more-link">View Collaborators <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campus Life Section -->
+        <section id="campus-life" class="campus-life-section scroll-spy-section">
+            <div class="section-container">
+                <div class="text-center-wrapper">
+                    <span class="section-tag">Campus Life</span>
+                    <h2 class="section-title">A Dynamic and Vibrant Student Community</h2>
+                    <p class="section-subtitle">Beyond classroom learning, our students enjoy an active and
+                        well-balanced campus experience rich in cultural, creative, and sporting pursuits.</p>
+                </div>
+
+                <div class="gallery-grid" id="campus-life-gallery">
+                    <!-- Library -->
+                    <div class="gallery-item" data-image="assets/images/library.png"
+                        data-caption="Aurelia Academic Library: Housing over 500,000 prints and journals.">
+                        <img src="assets/images/library.png" alt="University Library" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            <h4>Academic Library</h4>
+                            <p>Open 24/7 for study and research</p>
+                        </div>
+                    </div>
+                    <!-- Smart Classroom -->
+                    <div class="gallery-item" data-image="assets/images/classroom.png"
+                        data-caption="Smart Lecture Theatres: Equipped with digital smart boards and distance learning links.">
+                        <img src="assets/images/classroom.png" alt="Smart Classrooms" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            <h4>Smart Classrooms</h4>
+                            <p>Collaborative learning technology</p>
+                        </div>
+                    </div>
+                    <!-- Hostel -->
+                    <div class="gallery-item" data-image="assets/images/hostel.png"
+                        data-caption="Residential Lounges: Featuring spacious dorms, shared lounges, and study centers.">
+                        <img src="assets/images/hostel.png" alt="Hostel Facilities" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            <h4>Hostel Facilities</h4>
+                            <p>Comfortable campus residencies</p>
+                        </div>
+                    </div>
+                    <!-- Sports -->
+                    <div class="gallery-item" data-image="assets/images/sports.png"
+                        data-caption="Sports Complex: Athletic track, indoor courts, and swimming pool.">
+                        <img src="assets/images/sports.png" alt="Sports Complex" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            <h4>Sports Complex</h4>
+                            <p>Fostering physical fitness & team spirit</p>
+                        </div>
+                    </div>
+                    <!-- Cultural Events -->
+                    <div class="gallery-item" data-image="assets/images/cultural.png"
+                        data-caption="Graduation and Festivals: Annual events highlighting music, performance, and academic joy.">
+                        <img src="assets/images/cultural.png" alt="Cultural Events" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            <h4>Cultural Festivals</h4>
+                            <p>Diverse arts, theater, and concerts</p>
+                        </div>
+                    </div>
+                    <!-- Student Clubs -->
+                    <div class="gallery-item" data-image="assets/images/clubs.png"
+                        data-caption="Student Innovations: Robotics, astronomy, and community outreach clubs.">
+                        <img src="assets/images/clubs.png" alt="Student Clubs" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            <h4>Student Clubs</h4>
+                            <p>40+ interest-based campus organizations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placement Section -->
+        <section id="placements" class="placements-section scroll-spy-section">
+            <div class="section-container">
+                <div class="placements-split">
+                    <!-- Placement Stats Panel -->
+                    <div class="placements-stats-info">
+                        <span class="section-tag">Career Placements</span>
+                        <h2 class="section-title">Step Direct Into the Global Professional Sphere</h2>
+                        <p class="about-desc">With a dedicated placement training cell, student mentoring, mock
+                            interview prep, and corporate internship linkages, our graduates launch their careers in
+                            premier corporations globally.</p>
+
+                        <div class="salary-highlights-container">
+                            <div class="salary-card bg-glass">
+                                <span class="salary-label">Highest International Package</span>
+                                <span class="salary-val">$184,000</span>
+                                <span class="salary-sub">Software Development (Seattle)</span>
+                            </div>
+                            <div class="salary-card bg-glass">
+                                <span class="salary-label">Average Annual Package</span>
+                                <span class="salary-val">$82,500</span>
+                                <span class="salary-sub">All branches unified average</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alumni Spotlight -->
+                    <div class="alumni-spotlight-panel">
+                        <h3>Alumni Success Stories</h3>
+                        <div class="alumni-card">
+                            <div class="alumni-profile">
+                                <img src="assets/images/student3.png" alt="Alumni Portrait" class="alumni-img">
+                                <div class="alumni-bio">
+                                    <span class="alumni-name">Marcus Vance</span>
+                                    <span class="alumni-title">Senior ML Architect, Google</span>
+                                    <span class="alumni-class">B.Tech CS (Class of 2021)</span>
+                                </div>
+                            </div>
+                            <p class="alumni-quote">"Aurelia's Innovation Center gave me the foundation and lab
+                                equipment I needed to work on advanced machine learning algorithms during my sophomore
+                                year. The career center guided me straight into my dream internship."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recruiter Logos Carousel -->
+                <div class="recruiter-carousel-wrapper">
+                    <h4>Top Recruiters Recruiting Our Graduates</h4>
+                    <div class="recruiter-track">
+                        <!-- Custom styled mock SVG logo elements for fast loading and crisp style -->
+                        <div class="logo-item">
+                            <svg class="recruit-svg" viewBox="0 0 200 60"><text x="50%" y="60%" text-anchor="middle"
+                                    font-family="'Outfit', sans-serif" font-weight="bold" font-size="28"
+                                    fill="#5F6368">Google</text></svg>
+                        </div>
+                        <div class="logo-item">
+                            <svg class="recruit-svg" viewBox="0 0 200 60"><text x="50%" y="60%" text-anchor="middle"
+                                    font-family="'Outfit', sans-serif" font-weight="bold" font-size="28"
+                                    fill="#00A4EF">Microsoft</text></svg>
+                        </div>
+                        <div class="logo-item">
+                            <svg class="recruit-svg" viewBox="0 0 200 60"><text x="50%" y="60%" text-anchor="middle"
+                                    font-family="'Outfit', sans-serif" font-weight="bold" font-size="28"
+                                    fill="#1C1C1C">Apple</text></svg>
+                        </div>
+                        <div class="logo-item">
+                            <svg class="recruit-svg" viewBox="0 0 200 60"><text x="50%" y="60%" text-anchor="middle"
+                                    font-family="'Outfit', sans-serif" font-weight="bold" font-size="28"
+                                    fill="#FF9900">Amazon</text></svg>
+                        </div>
+                        <div class="logo-item">
+                            <svg class="recruit-svg" viewBox="0 0 200 60"><text x="50%" y="60%" text-anchor="middle"
+                                    font-family="'Outfit', sans-serif" font-weight="bold" font-size="28"
+                                    fill="#0A66C2">LinkedIn</text></svg>
+                        </div>
+                        <div class="logo-item">
+                            <svg class="recruit-svg" viewBox="0 0 200 60"><text x="50%" y="60%" text-anchor="middle"
+                                    font-family="'Outfit', sans-serif" font-weight="bold" font-size="28"
+                                    fill="#003087">Meta</text></svg>
+                        </div>
+                        <div class="logo-item">
+                            <svg class="recruit-svg" viewBox="0 0 200 60"><text x="50%" y="60%" text-anchor="middle"
+                                    font-family="'Outfit', sans-serif" font-weight="bold" font-size="28"
+                                    fill="#1A365D">Goldman</text></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events & News Section -->
+        <section id="events" class="events-section scroll-spy-section">
+            <div class="section-container">
+                <div class="text-center-wrapper">
+                    <span class="section-tag">Campus Pulse</span>
+                    <h2 class="section-title">Latest Announcements & Upcoming Events</h2>
+                    <p class="section-subtitle">Stay connected with academic calendars, international workshops, and
+                        campus notifications.</p>
+                </div>
+
+                <div class="events-grid">
+                    <!-- Event 1 -->
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="day">12</span>
+                            <span class="month">Jun</span>
+                        </div>
+                        <div class="event-details">
+                            <span class="event-type type-seminar">Seminar</span>
+                            <h3>International Symposium on Quantum Cryptography</h3>
+                            <p><i class="fa-regular fa-clock"></i> 10:00 AM - 4:00 PM • <i
+                                    class="fa-solid fa-location-dot"></i> Einstein Auditorium</p>
+                            <p>Featuring keynotes from Nobel Laureates and lead researchers from national security
+                                centers.</p>
+                            <a href="#contact" class="event-link">Register Seat</a>
+                        </div>
+                    </div>
+
+                    <!-- Event 2 -->
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="day">18</span>
+                            <span class="month">Jun</span>
+                        </div>
+                        <div class="event-details">
+                            <span class="event-type type-workshop">Workshop</span>
+                            <h3>Renewable Energy Grid Design Hackathon</h3>
+                            <p><i class="fa-regular fa-clock"></i> 09:00 AM onwards • <i
+                                    class="fa-solid fa-location-dot"></i> Tech Hub Lab 4</p>
+                            <p>Join forces to build low-cost decentralised power grid software modules. Cash prizes up
+                                to $5,000.</p>
+                            <a href="#contact" class="event-link">Register Seat</a>
+                        </div>
+                    </div>
+
+                    <!-- Event 3 -->
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="day">25</span>
+                            <span class="month">Jun</span>
+                        </div>
+                        <div class="event-details">
+                            <span class="event-type type-festival">Convocation</span>
+                            <h3>128th Commencement & Convocation Ceremony</h3>
+                            <p><i class="fa-regular fa-clock"></i> 11:00 AM • <i class="fa-solid fa-location-dot"></i>
+                                Grand Quadrangle</p>
+                            <p>Celebrating the achievements of the graduating class of 2026. Guest speaker announcement
+                                coming soon.</p>
+                            <a href="#contact" class="event-link">Event Schedule</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="section-container">
+                <div class="text-center-wrapper">
+                    <span class="section-tag">Student Stories</span>
+                    <h2 class="section-title">What Our Scholars Say</h2>
+                </div>
+
+                <div class="slider-wrapper">
+                    <div class="testimonial-slider" id="testimonial-slider-container">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-slide active">
+                            <div class="testimonial-content-box">
+                                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                                <p class="quote-text">"Studying Computer Science at Aurelia has been transformational.
+                                    The curriculum is challenging, but the professors are deeply supportive and the
+                                    resources here are unparalleled."</p>
+                                <div class="student-profile">
+                                    <img src="assets/images/student1.png" alt="Student Portrait" class="student-avatar">
+                                    <div class="student-meta">
+                                        <span class="student-name">Samantha Carter</span>
+                                        <span class="student-info">Senior, B.S. in Computer Science</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-content-box">
+                                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                                <p class="quote-text">"The international study program changed my outlook on global
+                                    business. Spending a semester in Tokyo studying business economics was a
+                                    life-altering experience that I will cherish forever."</p>
+                                <div class="student-profile">
+                                    <img src="assets/images/student2.png" alt="Student Portrait" class="student-avatar">
+                                    <div class="student-meta">
+                                        <span class="student-name">Aaron Miller</span>
+                                        <span class="student-info">Junior, Business Administration</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide Controls -->
+                    <div class="slider-controls" id="slider-dots-nav">
+                        <button class="dot active" data-index="0" aria-label="Go to slide 1"></button>
+                        <button class="dot" data-index="1" aria-label="Go to slide 2"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section scroll-spy-section">
+            <div class="section-container">
+                <div class="contact-grid">
+                    <!-- Inquiry Form -->
+                    <div class="form-panel bg-glass">
+                        <h3>Connect With Admissions</h3>
+                        <p>Fill out the form below to receive detailed info packages, admission notifications, and event
+                            details.</p>
+                        <form id="university-inquiry-form" class="inquiry-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="form-name">Full Name <span class="req">*</span></label>
+                                    <input type="text" id="form-name" required placeholder="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-email">Email Address <span class="req">*</span></label>
+                                    <input type="email" id="form-email" required placeholder="john@example.com">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="form-phone">Phone Number</label>
+                                    <input type="tel" id="form-phone" placeholder="+1 (555) 019-2834">
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-program">Program of Interest <span class="req">*</span></label>
+                                    <select id="form-program" required>
+                                        <option value="" disabled selected>Select program...</option>
+                                        <option value="engineering">Engineering</option>
+                                        <option value="cs">Computer Science</option>
+                                        <option value="business">Business Administration</option>
+                                        <option value="arts">Arts & Humanities</option>
+                                        <option value="medical">Medical Sciences</option>
+                                        <option value="law">Law & Policy</option>
+                                        <option value="agriculture">Agriculture</option>
+                                        <option value="research">Research Programs</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="form-message">Message / Questions</label>
+                                <textarea id="form-message" rows="4" placeholder="Type your inquiry here..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-gold btn-block" id="form-submit-btn">Send
+                                Inquiry</button>
+                        </form>
+                        <div class="form-feedback-toast" id="form-toast-msg"></div>
+                    </div>
+
+                    <!-- Contact Details & Map -->
+                    <div class="details-panel">
+                        <div class="contact-details">
+                            <h3>Contact Us</h3>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                <div>
+                                    <h4>University Address</h4>
+                                    <p>100 Academic Parkway, University Heights, MA 02138, USA</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-envelope"></i>
+                                <div>
+                                    <h4>Email Communications</h4>
+                                    <p>admissions@aurelia.edu • info@aurelia.edu</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-phone-volume"></i>
+                                <div>
+                                    <h4>Phone Numbers</h4>
+                                    <p>Admissions Office: +1 (617) 555-0190<br>General Inquiries: +1 (617) 555-0199</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Map -->
+                        <div class="map-container" id="interactive-map-frame">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.3378565431526!2d-71.12002368454378!3d42.374429979185794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e377427d7b019e%3A0x8a3775b1cb0b1565!2sHarvard%20University!5e0!3m2!1sen!2sus!4v1680000000000!5m2!1sen!2sus"
+                                width="100%" height="250" style="border:0; border-radius: 8px;" allowfullscreen=""
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                title="Aurelia University Campus Map">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="section-container footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.png" alt="University Logo">
+                        <span>Aurelia University</span>
+                    </div>
+                    <p>Dedicated to excellence, innovation, and leadership since 1895. Join our world-spanning network
+                        of scholars.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://twitter.com" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://linkedin.com" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://instagram.com" aria-label="Instagram"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Our Heritage</a></li>
+                        <li><a href="#academics">Degrees & Curriculums</a></li>
+                        <li><a href="#admissions">Tuition & Scholarship Policies</a></li>
+                        <li><a href="#research">Innovation Lab Ventures</a></li>
+                        <li><a href="#placements">Graduate Placement Reports</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#home">Student Portal</a></li>
+                        <li><a href="#home">Faculty Directory</a></li>
+                        <li><a href="#home">Library Database E-Books</a></li>
+                        <li><a href="#home">Academic Calendar 2026</a></li>
+                        <li><a href="#contact">Campus Safety & Helpdesk</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our monthly newsletters to receive research breakthroughs, events schedules, and
+                        admissions updates.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email address" aria-label="Email for newsletter"
+                            class="newsletter-input" id="newsletter-email">
+                        <button class="btn btn-gold" id="newsletter-submit-btn"
+                            aria-label="Subscribe">Subscribe</button>
+                    </div>
+                    <div id="newsletter-feedback" class="news-feedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="section-container footer-bottom-inner">
+                <p>&copy; 2026 Aurelia University. All rights reserved. Shaping leaders for a better tomorrow.</p>
+                <div class="legal-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms & Conditions</a>
+                    <a href="#sitemap">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL FOR GALLERY -->
+    <div class="lightbox-modal" id="gallery-lightbox">
+        <span class="lightbox-close" id="lightbox-close-btn">&times;</span>
+        <img class="lightbox-content" id="lightbox-main-img" src="" alt="Expanded campus view">
+        <div class="lightbox-caption" id="lightbox-img-caption"></div>
+    </div>
+
+    <!-- STUDENT LOGIN MODAL -->
+    <div class="app-modal" id="login-modal-box">
+        <div class="modal-card bg-glass">
+            <span class="modal-close" id="login-close-btn">&times;</span>
+            <div class="modal-header">
+                <i class="fa-solid fa-user-graduate modal-icon"></i>
+                <h2>Student Portal Sign In</h2>
+                <p>Access your classes, library cards, and exams.</p>
+            </div>
+            <form id="student-login-form" class="modal-form">
+                <div class="form-group">
+                    <label for="login-id">Student ID / Enrollment Email</label>
+                    <input type="text" id="login-id" required placeholder="std_12345@aurelia.edu">
+                </div>
+                <div class="form-group">
+                    <label for="login-pw">Secure Password</label>
+                    <input type="password" id="login-pw" required placeholder="••••••••">
+                </div>
+                <div class="forgot-pwd-row">
+                    <label class="remember-me"><input type="checkbox"> Remember me</label>
+                    <a href="#forgot" class="forgot-link">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-navy btn-block">Sign In</button>
+            </form>
+            <div class="login-feedback" id="login-feedback-msg"></div>
+        </div>
+    </div>
+
+    <!-- APPLY NOW MODAL -->
+    <div class="app-modal" id="apply-modal-box">
+        <div class="modal-card bg-glass">
+            <span class="modal-close" id="apply-close-btn">&times;</span>
+            <div class="modal-header">
+                <i class="fa-solid fa-file-signature modal-icon"></i>
+                <h2>Undergraduate & Graduate Application</h2>
+                <p>Start your journey toward academic excellence.</p>
+            </div>
+            <form id="apply-form-element" class="modal-form">
+                <div class="form-group">
+                    <label for="apply-name">Full Legal Name</label>
+                    <input type="text" id="apply-name" required placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label for="apply-email">Contact Email Address</label>
+                    <input type="email" id="apply-email" required placeholder="jane@example.com">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="apply-degree">Degree Path</label>
+                        <select id="apply-degree" required>
+                            <option value="" disabled selected>Choose degree...</option>
+                            <option value="ug">Undergraduate (Bachelor)</option>
+                            <option value="pg">Postgraduate (Master)</option>
+                            <option value="phd">Doctor of Philosophy (Ph.D.)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="apply-course">Major Subject</label>
+                        <select id="apply-course" required>
+                            <option value="" disabled selected>Choose major...</option>
+                            <option value="engineering">Engineering Science</option>
+                            <option value="cs">Computer Science & AI</option>
+                            <option value="business">Business Administration</option>
+                            <option value="arts">English Literature & History</option>
+                            <option value="medical">Bio-Medicine</option>
+                            <option value="law">Law & Jurisprudence</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="apply-doc">Academic Transcripts (PDF)</label>
+                    <input type="file" id="apply-doc" required accept=".pdf">
+                </div>
+                <button type="submit" class="btn btn-gold btn-block">Submit Application</button>
+            </form>
+            <div class="apply-feedback" id="apply-feedback-msg"></div>
+        </div>
+    </div>
+
+    <!-- Custom Script File -->
+    <script src="script.js"></script>
+
+    <!-- AITD Kanpur AI Chatbot Widget -->
+    <script src="https://aitd-ai.onrender.com/widget/widget.js" data-api="https://aitd-ai.onrender.com/api/chat" async></script>
+</body>
+
+</html>
