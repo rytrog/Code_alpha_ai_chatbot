@@ -18,6 +18,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Application code
 COPY backend/ .
+COPY widget/ /widget/
+COPY admin-panel/ /admin-panel/
+
 
 # Create required directories
 RUN mkdir -p /data/uploads /data/chroma /data/logs
