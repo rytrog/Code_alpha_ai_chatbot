@@ -181,6 +181,17 @@ async def upload_document(
 
     logger.info(f"Document ingested: {saved_filename} -> {added} chunks")
 
+    # Clear answer cache so previously-failed queries can now find data
+    # from the newly uploaded file. This is safe because positive cached
+    # answers will be regenerated quickly on the next query.
+    try:
+        await conn.execute("DELETE FROM answer_cache")
+        await conn.commit()
+        logger.info("Answer cache cleared after new document upload.")
+    except Exception as e:
+        await conn.rollback()
+        logger.warning(f"Failed to clear answer cache: {e}")
+
     return {
         "message": "Document uploaded and ingested successfully.",
         "filename": saved_filename,

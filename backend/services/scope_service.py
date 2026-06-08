@@ -11,6 +11,7 @@ Allowed topics:  admission, exam, hostel, faculty, department, course,
 Blocked categories:  politics, religion, coding, entertainment,
                      personal advice, general knowledge
 """
+import re
 import json
 from pathlib import Path
 
@@ -29,6 +30,12 @@ _BLOCKED_PATTERNS: list[str] = [
     "boyfriend", "girlfriend", "dating", "love advice",
 ]
 
+# Compile with word boundaries to avoid false positives (e.g. "ipl" in "diploma" or "god" in "pagoda")
+_BLOCKED_REGEXES: list[re.Pattern] = [
+    re.compile(r'\b' + re.escape(pattern) + r'\b', re.IGNORECASE)
+    for pattern in _BLOCKED_PATTERNS
+]
+
 OUT_OF_SCOPE_REPLY = (
     "Sorry, I can only answer queries related to AITD, Kanpur. "
     "Please ask questions about admissions, fees, courses, placements, "
@@ -38,20 +45,28 @@ OUT_OF_SCOPE_REPLY = (
 
 def is_in_scope(message: str) -> bool:
     """
-    Return True if the message relates to a university topic.
-    Check blocked patterns first (quick reject), then allowed keywords.
+    Return True if the message should be processed by the RAG pipeline.
+
+    Strategy:
+      1. Quick-reject queries that are OBVIOUSLY off-topic (blocked patterns).
+      2. If any university keyword matches, definitely in scope.
+      3. DEFAULT: allow through to RAG. If the data isn't there, the LLM
+         will respond with "not available" — which is better UX than a
+         hard scope rejection for borderline queries.
     """
     msg = message.lower()
 
-    # Quick reject for obviously off-topic queries
-    for pattern in _BLOCKED_PATTERNS:
-        if pattern in msg:
+    # Quick reject for obviously off-topic queries (using word boundaries)
+    for rx in _BLOCKED_REGEXES:
+        if rx.search(msg):
             return False
 
-    # Check for at least one university keyword
+    # If any university keyword matches, definitely in scope
     for keyword in _KEYWORDS:
         if keyword in msg:
             return True
 
-    # Default: reject (strict scope)
-    return False
+    # Default: ALLOW through to RAG (permissive approach)
+    # The LLM prompt already instructs it to refuse non-AITD questions,
+    # and cache_service won't cache negative answers.
+    return True

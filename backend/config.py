@@ -23,7 +23,13 @@ class Settings(BaseSettings):
     # ── PostgreSQL ──
     DATABASE_URL: str = "postgresql+psycopg://postgres:postgres@localhost:5432/university_ai"
 
-    # ── Gemini AI ──
+    # ── LLM AI Configuration ──
+    LLM_PROVIDER: str = "gemini"
+    LLM_MODEL: str = "gemini-2.5-flash"
+    LLM_API_KEY: str = "SET_YOUR_GEMINI_API_KEY_HERE"
+    LLM_BASE_URL: str = ""
+
+    # Legacy configuration fallbacks
     GEMINI_API_KEY: str = "SET_YOUR_GEMINI_API_KEY_HERE"
     GEMINI_MODEL: str = "gemini-2.5-flash"
 
@@ -48,9 +54,11 @@ class Settings(BaseSettings):
     LOG_DIR: str = str(PROJECT_DIR / "logs")
 
     # ── RAG ──
-    CHUNK_SIZE: int = 500
-    CHUNK_OVERLAP: int = 100
-    RAG_TOP_K: int = 3
+    CHUNK_SIZE: int = 1000
+    CHUNK_OVERLAP: int = 300
+    RAG_TOP_K: int = 6                # Final chunks sent to LLM (optimized for rate limits)
+    RAG_CANDIDATE_POOL: int = 40      # Large pool fetched from ChromaDB for re-ranking
+    RAG_RELEVANCE_THRESHOLD: float = 0.15  # Minimum cosine similarity (permissive for broad matching)
 
     model_config = {
         "env_file": str(BASE_DIR / ".env"),

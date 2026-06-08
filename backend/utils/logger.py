@@ -21,6 +21,7 @@ _api_handler = RotatingFileHandler(
     os.path.join(settings.LOG_DIR, "api.log"),
     maxBytes=5 * 1024 * 1024,   # 5 MB
     backupCount=5,
+    encoding="utf-8",
 )
 _api_handler.setFormatter(_fmt)
 _api_handler.setLevel(logging.DEBUG)
@@ -30,6 +31,7 @@ _error_handler = RotatingFileHandler(
     os.path.join(settings.LOG_DIR, "error.log"),
     maxBytes=5 * 1024 * 1024,
     backupCount=5,
+    encoding="utf-8",
 )
 _error_handler.setFormatter(_fmt)
 _error_handler.setLevel(logging.ERROR)

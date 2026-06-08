@@ -12,7 +12,7 @@ print(f"  OK ({time.time()-t:.1f}s)", flush=True)
 
 print("Step 2: importing database.db...", flush=True)
 t = time.time()
-from database.db import init_db, async_session
+from database.db import init_db, get_conn, _conninfo
 print(f"  OK ({time.time()-t:.1f}s)", flush=True)
 
 print("Step 3: importing utils.logger...", flush=True)

@@ -17,7 +17,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from config import settings
-from database.db import init_db, get_conn, _conninfo
+from database.db import init_db, get_conn, _conninfo, init_pool, close_pool
 from utils.rate_limit import RateLimitMiddleware
 from utils.logger import logger
 
@@ -50,7 +50,7 @@ async def _seed_faq():
             ("What are the placements like?", "AITD has a dedicated Training and Placement Department. Top recruiters include TCS, Wipro, Tech Mahindra, Infosys, and HCL. Average package is Rs. 3 to Rs. 5 LPA depending on branch and performance.", "placement"),
             ("Where is AITD located?", "AITD is located at Awadhpuri, Opposite Rama Dental College, Kanpur - 208024, Uttar Pradesh, India. The campus is spread over approximately 15 acres and is fully barrier-free and accessible for Divyang students.", "location"),
             ("What is AITD full form?", "AITD stands for Dr. Ambedkar Institute of Technology for Divyangjan. It was formerly known as AITH (Dr. Ambedkar Institute of Technology for Handicapped). Established in 1997 by the Government of Uttar Pradesh.", "general"),
-            ("Who is the HOD of CSE?", "Prof. Shree Nath Dwivedi is the Head of Department for both Computer Science & Engineering and Computer Science & Engineering (AI & ML) at AITD Kanpur.", "department"),
+            ("Who is the HOD of CSE?", "Prof. Shree Nath Dwivedi is the Head of Department (HOD) for both Computer Science & Engineering and Computer Science & Engineering (AI & ML) at AITD Kanpur. He is highly hardworking, a best faculty member, exceptionally supportive of students, and serves as the Project Head supervising innovative AI and computer science research at the institute.", "department"),
             ("Who is the HOD of IT?", "Dr. Abhishek Prabhakar is the Head of Department for Information Technology at AITD Kanpur.", "department"),
             ("Who is the HOD of Chemical Engineering?", "Dr. M. S. Tripathi is the Head of Department for Chemical Engineering at AITD Kanpur.", "department"),
             ("What are the library facilities?", "AITD library has over 17,800 books, 50+ journals, and a digital library with NPTEL access. The Computer Center has 200+ systems with 24x7 internet, LAN, and Wi-Fi connectivity.", "library"),
@@ -110,6 +110,24 @@ async def _background_ingest():
         logger.error(f"Background auto-ingest error: {e}")
 
 
+async def _purge_negative_cache():
+    """Purge all stale negative/failure answers from the answer_cache on startup."""
+    import psycopg
+    from psycopg.rows import dict_row
+    from services.cache_service import purge_negative_cache
+
+    conn = await psycopg.AsyncConnection.connect(_conninfo)
+    conn.row_factory = dict_row
+    try:
+        purged = await purge_negative_cache(conn)
+        if purged > 0:
+            logger.info(f"Startup: purged {purged} stale negative cache entries.")
+    except Exception as e:
+        logger.warning(f"Startup: failed to purge negative cache: {e}")
+    finally:
+        await conn.close()
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Startup / shutdown lifecycle."""
@@ -118,9 +136,12 @@ async def lifespan(app: FastAPI):
     os.makedirs(settings.LOG_DIR, exist_ok=True)
 
     try:
+        await init_pool()
         await init_db()
         await _seed_faq()
-        logger.info("Database initialised. FAQ seeded.")
+        # Purge any stale negative answers from previous runs
+        await _purge_negative_cache()
+        logger.info("Database initialised. FAQ seeded. Negative cache purged.")
     except Exception as e:
         logger.error(f"Database startup error: {e}")
         logger.warning("App running WITHOUT database. Chat will fail until DB is available.")
@@ -132,6 +153,7 @@ async def lifespan(app: FastAPI):
 
     if not ingest_task.done():
         ingest_task.cancel()
+    await close_pool()
     logger.info("Shutting down.")
 
 

@@ -1,6 +1,14 @@
 """
 RAG Service — retrieves relevant document chunks from ChromaDB.
 Returns top-K chunks with source metadata.
+
+GENERALIZED SEARCH: retrieves a large pool of candidates from ALL files
+in the database, then re-ranks by relevance score to give the best context.
+
+All tuning parameters are read from config.py (configurable via .env):
+  - RAG_CANDIDATE_POOL  → how many candidates to fetch from ChromaDB
+  - RAG_TOP_K           → how many to pass to the LLM after re-ranking
+  - RAG_RELEVANCE_THRESHOLD → minimum cosine similarity to keep a chunk
 """
 import chromadb
 from chromadb.config import Settings as ChromaSettings
@@ -11,7 +19,6 @@ from utils.logger import logger
 _chroma_client = None
 
 COLLECTION_NAME = "university_docs"
-RELEVANCE_THRESHOLD = 0.35
 
 
 def _get_client():
@@ -37,42 +44,93 @@ def _get_collection():
 
 def retrieve(query: str, n_results: int | None = None) -> list[dict]:
     """
-    Search ChromaDB for the most relevant chunks.
+    GENERALIZED SEARCH across ALL documents in ChromaDB.
+
+    Strategy:
+      1. Fetch a LARGE pool of candidates (RAG_CANDIDATE_POOL from config)
+         from the entire database — this ensures chunks from every uploaded
+         file are considered.
+      2. Filter by RAG_RELEVANCE_THRESHOLD (permissive, from config).
+      3. Sort by relevance and return top RAG_TOP_K chunks (from config).
 
     Returns list of dicts:
-      [{"text": ..., "document_name": ..., "page_number": ..., "source_type": ...}, ...]
+      [{"text": ..., "document_name": ..., "page_number": ...,
+        "source_type": ..., "relevance_score": ...}, ...]
     """
-    top_k = n_results or settings.RAG_TOP_K
+    pool_size = settings.RAG_CANDIDATE_POOL
+    final_size = n_results or settings.RAG_TOP_K
+    threshold = settings.RAG_RELEVANCE_THRESHOLD
+
     collection = _get_collection()
 
-    if collection.count() == 0:
+    total_docs = collection.count()
+    if total_docs == 0:
         logger.warning("ChromaDB collection is empty — no documents ingested yet.")
         return []
 
-    results = collection.query(
-        query_texts=[query],
-        n_results=min(top_k, collection.count()),
-        include=["documents", "metadatas", "distances"],
+    # Fetch a large candidate pool (capped at total doc count)
+    fetch_count = min(pool_size, total_docs)
+
+    logger.info(
+        f"RAG search: query='{query[:100]}' | pool={fetch_count}/{total_docs} "
+        f"| threshold={threshold} | final_size={final_size}"
     )
 
+    try:
+        results = collection.query(
+            query_texts=[query],
+            n_results=fetch_count,
+            include=["documents", "metadatas", "distances"],
+        )
+    except Exception as e:
+        logger.error(f"ChromaDB query failed: {e}")
+        return []
+
     chunks = []
-    if results and results["documents"]:
+    if results and results["documents"] and results["documents"][0]:
         for doc, meta, dist in zip(
             results["documents"][0],
             results["metadatas"][0],
             results["distances"][0],
         ):
+            # ChromaDB cosine distance: 0 = identical, 2 = opposite
+            # Convert to similarity score: 1 - distance
             score = round(1 - dist, 4)
-            if score >= RELEVANCE_THRESHOLD:
+
+            doc_name = meta.get("document_name", "Unknown")
+            logger.debug(
+                f"  Chunk from '{doc_name}' | score={score:.4f} | "
+                f"text='{doc[:60]}...'"
+            )
+
+            if score >= threshold:
                 chunks.append({
                     "text": doc,
-                    "document_name": meta.get("document_name", "Unknown"),
+                    "document_name": doc_name,
                     "page_number": meta.get("page_number", 0),
                     "source_type": meta.get("source_type", "document"),
                     "relevance_score": score,
                 })
 
-    return chunks
+    # Sort by relevance (highest first) and take top N
+    chunks.sort(key=lambda c: c["relevance_score"], reverse=True)
+    top_chunks = chunks[:final_size]
+
+    # Log what files were found for debugging
+    if top_chunks:
+        files_found = set(c["document_name"] for c in top_chunks)
+        scores = [c["relevance_score"] for c in top_chunks]
+        logger.info(
+            f"RAG returned {len(top_chunks)} chunks from files: {files_found} "
+            f"| score range: {min(scores):.4f} – {max(scores):.4f}"
+        )
+    else:
+        logger.warning(
+            f"RAG found 0 relevant chunks (above threshold {threshold}) "
+            f"for query: '{query[:100]}'"
+        )
+
+    return top_chunks
 
 
 def add_documents(
