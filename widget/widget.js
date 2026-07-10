@@ -12,7 +12,9 @@
 
   var API_URL =
     (document.currentScript && document.currentScript.getAttribute("data-api")) ||
-    window.location.origin + "/api/chat";
+    (window.location.hostname === "rytrog.github.io"
+      ? "https://code-alpha-ai-chatbot.onrender.com/api/chat"
+      : window.location.origin + "/api/chat");
 
   // Get or create unique session ID (persists within the browser tab session)
   var sessionId = null;
