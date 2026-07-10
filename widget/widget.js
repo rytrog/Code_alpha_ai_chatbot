@@ -308,8 +308,10 @@
     display: none;\
   }\
   #ua-chat-window {\
-    bottom: 0 !important; right: 0 !important;\
-    width: 100vw !important; height: 100vh !important;\
+    top: 0 !important; bottom: 0 !important;\
+    left: 0 !important; right: 0 !important;\
+    width: 100% !important; height: auto !important;\
+    max-height: 100dvh !important;\
     border-radius: 0 !important;\
   }\
   #ua-toggle-container { bottom: 16px; right: 16px; }\
