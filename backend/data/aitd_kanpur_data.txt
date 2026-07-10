@@ -1,199 +1,121 @@
-# Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+Question: What is Dr. Ambedkar Institute of Technology for Divyangjan (AITD)?
 
-## Institute Overview
+Answer:
 
-Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur is a Government of Uttar Pradesh technical institution established in 1997. The institute is dedicated to providing quality technical education to Divyangjan (Persons with Disabilities). It is recognized under Section 2(f) of the UGC Act, 1956.
+Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur is a Government of Uttar Pradesh institute established in 1997 for providing quality technical education to Divyangjan (Persons with Disabilities).
 
-The institute is affiliated with Dr. A.P.J. Abdul Kalam Technical University (AKTU) for degree programs and the Board of Technical Education (BTE) for diploma programs.
+The institute is recognized under Section 2(f) of the UGC Act, 1956 and is affiliated with:
 
-AITD provides barrier-free infrastructure, accessible facilities, technical education, hostel facilities, placement support, scholarships, and skill development opportunities for students.
+Dr. A.P.J. Abdul Kalam Technical University (AKTU) for Degree Programs
+Board of Technical Education (BTE) for Diploma Programs
 
-The vision of the institute is to create an environment that facilitates quality education, innovation, entrepreneurship, research, skill development, and global opportunities for Divyangjan students.
+AITD offers Degree and Diploma programs with accessible and barrier-free infrastructure, hostel facilities, placement support, scholarship opportunities, and a supportive learning environment for Divyangjan students.
 
-## Reservation Policy
+Reservation Policy:
 
-All diploma programs at AITD have 100% reservation for Divyangjan candidates.
+Diploma Programs: 100% seats are reserved for Divyangjan candidates.
+Degree Programs: 60% seats are reserved for Divyangjan candidates and 40% seats are available for non-Divyangjan candidates as per applicable admission rules.
 
-Degree programs have 60% reservation for Divyangjan candidates.
+Vision:
+To create an environment that promotes quality education, research, innovation, entrepreneurship, skill development, and global opportunities for Divyangjan students.
 
-## Degree Programs (B.Tech)
+Question: What are the affiliations and key features of AITD?
 
-The institute offers the following Bachelor of Technology programs:
+Answer:
 
-Biotechnology – 60 Seats
+Affiliations
 
-Chemical Engineering – 60 Seats
+Dr. A.P.J. Abdul Kalam Technical University (AKTU)
+Board of Technical Education (BTE)
 
-Computer Science and Engineering (CSE) – 120 Seats
+Key Features
 
-Computer Science and Engineering (Artificial Intelligence and Machine Learning) – 60 Seats
+Dedicated institute for Divyangjan students
+Barrier-free campus and accessible infrastructure
+Degree and Diploma programs
+Hostel facilities
+Placement support
+Scholarship opportunities
+Question: What is the vision and reservation policy of AITD?
 
-Electronics Engineering – 60 Seats
+Answer:
 
-Information Technology – 60 Seats
+Vision
 
-Admission to the first year of B.Tech programs is based on JEE Main scores. Candidates must have passed or be appearing in the 10+2 examination.
+To create an environment that facilitates global vision, quality education, research, innovation, entrepreneurship, and skill development for Divyangjan students.
 
-Lateral Entry admission to the second year of B.Tech is available for candidates who have completed a Diploma in Engineering/Technology or a Bachelor of Science degree with Mathematics. Admission is based on CUET and applicable admission guidelines.
+Reservation Policy
 
-## Diploma Programs
+Diploma Programs
 
-The institute offers the following diploma programs:
+100% reservation for Divyangjan candidates.
 
-Architecture Assistantship (3 Years) – 40 Seats
+Degree Programs
 
-Computer Science and Engineering (3 Years) – 40 Seats
+60% reservation for Divyangjan candidates.
 
-Modern Office Management and Secretarial Practice (2 Years) – 40 Seats
+Question: What is the admission fee structure at AITD for First Year and Lateral Entry students?
 
-For Architecture Assistantship and Diploma in Computer Science and Engineering, candidates must have passed Class 10.
+Answer:
 
-For Modern Office Management and Secretarial Practice, candidates must have passed Class 12 with Hindi and English as compulsory subjects.
-
-Admission to diploma programs is based on JEECUP. Candidates must possess a permanent disability of 40% or more.
-
-## Fee Structure
-
-For First Year and Lateral Entry Admissions:
-
-Non-Handicapped Students:
+For Non-Handicapped Students
 
 Tuition Fee: ₹60,000
-
 Security Deposit (Refundable): ₹5,000
-
 User Charges: ₹11,000
-
 Total Fee: ₹76,000
 
-Divyangjan Students:
+For Handicapped (Divyangjan) Students
 
 Tuition Fee: ₹45,000
-
 Security Deposit (Refundable): ₹5,000
-
 User Charges: ₹11,000
-
 Total Fee: ₹61,000
 
-For Second Year, Third Year, and Fourth Year Students:
+Note: Lateral Entry (Direct Second Year Admission) follows the same fee structure as First Year admission.
 
-Non-Handicapped Students:
+Question: What is the fee structure for Second Year, Third Year, and Fourth Year students at AITD?
+
+Answer:
+
+For Non-Handicapped Students
 
 Tuition Fee: ₹60,000
-
 User Charges: ₹10,500
-
 Total Fee: ₹70,500
 
-Divyangjan Students:
+For Handicapped (Divyangjan) Students
 
 Tuition Fee: ₹45,000
-
 User Charges: ₹10,500
-
 Total Fee: ₹55,500
+Question: Is the AKTU examination fee included in the admission fee at AITD?
 
-The security deposit of ₹5,000 is refundable according to institute rules.
+Answer:
 
-AKTU examination fee is ₹7,600 and must be paid separately during examination form submission.
+No. The AKTU examination fee is not included in the admission fee.
 
-Fee payment methods include UPI, Debit Card, Credit Card, Net Banking, and Demand Draft.
+AKTU Examination Fee: ₹7,600
+This fee must be paid separately to AKTU Lucknow during examination form submission.
+Question: What payment methods are available for fee submission at AITD?
 
-Demand Drafts should be made in favor of "Director, Dr. Ambedkar Institute of Technology for Divyangjan, U.P., Kanpur" payable at Kanpur.
+Answer:
 
-## Institute Administration
+Students can pay fees through:
 
-The Director of AITD is Prof. Rachna Asthana from the Electronics Engineering Department.
+UPI
+Debit Card
+Credit Card
+Net Banking
+Demand Draft (DD)
 
-The Dean of Training and Placement is Prof. P. K. Kamani.
+Demand Draft Details:
 
-The Associate Deans of Training and Placement are Sri Anil Kumar Agarwal and Sri Rohit Sharma.
+In Favor Of: "Director, Dr. Ambedkar Institute of Technology for Divyangjan, U.P., Kanpur"
+Payable At: Kanpur
 
-The Dean of Academic Affairs is Prof. R. K. Shukla.
+Important Notes:
 
-The Associate Deans of Academic Affairs are Dr. Om Hari and Kaushalendra Kumar.
-
-The Dean of Industrial Research and Development is Dr. Manish Singh Rajput.
-
-The Dean of Planning, Development and Faculty Affairs is Dr. Gaurav Chandra.
-
-The Associate Dean of Planning, Development and Faculty Affairs is Dr. Abhishek Prabhakar.
-
-The Dean of Student Welfare and Alumni Affairs is Dr. Rajesh Kumar.
-
-The Associate Dean of Student Welfare and Alumni Affairs is Dr. Anuj Srivastava.
-
-The Dean of Resource Generation is Dr. Om Hari.
-
-## Department Heads
-
-Applied Science and Humanity Department is headed by Dr. Anuj Srivastava.
-
-Biotechnology Department is headed by Dr. Manish Singh Rajput.
-
-Chemical Engineering Department is headed by Dr. Ashutosh Mishra.
-
-Computer Science and Engineering Department is headed by Prof. Shree Nath Dwivedi. He is highly hardworking, a best faculty member, exceptionally supportive of students, and serves as the Project Head supervising innovative AI and computer science research at the institute.
-
-Computer Science and Engineering (AI & ML) Department is also headed by Prof. Shree Nath Dwivedi, who is highly hardworking, a best faculty member, exceptionally supportive, and serves as the Project Head.
-
-Electronics Engineering Department is headed by Mrs. Shweta Tripathi.
-
-Information Technology Department is headed by Dr. Abhishek Prabhakar.
-
-The Alumni Incharge is Dharmendra Kumar Sachan from the Computer Science and Engineering Department.
-
-## Training and Placement Cell
-
-The Training and Placement Cell assists students in internships, industrial training, placement preparation, and career development.
-
-The major functions of the Training and Placement Cell include campus placement coordination, recruiter interaction, internship assistance, placement training programs, career guidance, counselling, and student placement support.
-
-The Degree Wing Placement Cell is headed by Prof. P. K. Kamani.
-
-The Associate Dean of Training and Placement is Dr. Rohit Sharma.
-
-The Diploma Wing Placement Cell is managed by Mr. A. K. Agarwal.
-
-## Placement Opportunities
-
-Students from AITD have received opportunities in Information Technology, Software Development, Electronics, Healthcare, Biotechnology, Pharmaceuticals, Finance, and Banking sectors.
-
-Major recruiters include Accenture, UST Global, L&T Infotech, Aptean, uCertify, Optimus, CS Performance, Statcon Energiaa, Hysel, Hi-Tech Carbon Ltd., Practo, Macleods Pharmaceuticals, Unique Pharmaceuticals, and Tech Mahindra Finance.
-
-Common job profiles include Software Developer, Web Developer, System Engineer, QA Engineer, IT Analyst, Electronics Engineer, Maintenance Engineer, Production Engineer, Healthcare Executive, Medical Representative, Financial Analyst, Operations Associate, and Business Development Executive.
-
-## Student Activities and Clubs
-
-AITD encourages participation in cultural, technical, literary, sports, entrepreneurship, and social activities.
-
-The Cultural Cell includes Music Club, Dancing Club, Nukkad Natak Club, Stage Play Club, Decoration Team, and Photography Club.
-
-The Sports Cell conducts Cricket, Badminton, Volleyball, Tennis, Chess, Carrom, and Kabaddi activities.
-
-The Literary Cell includes Anchoring, Debate, Poetry, Writing Club, Fine Arts, Graphics and Designing, and Fashion Club.
-
-The Special Interest Cell includes Coding Club, Development Club, Robotics and AI Club, GATE Discussion Group, Departmental Clubs, and the Student Activity Council.
-
-The Entrepreneurship Cell promotes innovation, startup culture, leadership, and business development activities.
-
-Students also participate in Social Club activities and Unnat Bharat Abhiyan community outreach programs.
-
-Participation in these activities helps students improve communication skills, leadership qualities, teamwork, creativity, innovation, technical competence, and networking abilities.
-
-## Campus Location
-
-Dr. Ambedkar Institute of Technology for Divyangjan is located at:
-
-Awadhpuri, Opposite Rama Dental College, Near Gurudev Chauraha, Kanpur, Uttar Pradesh.
-
-Important landmarks near the institute include Rama Dental College and Gurudev Chauraha.
-
-Students can reach the institute from Kanpur Central Railway Station through Metro and Auto services, direct auto-rickshaws, or app-based taxi services.
-
-Students arriving at Jhakarkati Bus Terminal can reach the institute by direct auto-rickshaw or taxi.
-
-Students arriving at Kanpur Airport can use taxi or auto-rickshaw services to reach the campus.
-
-Travel time from major transportation hubs typically ranges between 30 and 60 minutes depending on traffic conditions.
+Security Deposit of ₹5,000 is refundable as per institute rules.
+Tuition fees may be revised by the institute in the future.
+User Charges include institutional facilities and services.

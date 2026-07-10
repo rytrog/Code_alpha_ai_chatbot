@@ -122,6 +122,8 @@ async def get_documents(conn=Depends(get_conn)):
                 "filename": doc["filename"],
                 "source_type": doc["source_type"] or "document",
                 "chunk_count": doc["chunk_count"],
+                "status": doc.get("status", "completed"),
+                "error_message": doc.get("error_message"),
                 "uploaded_at": doc["uploaded_at"].isoformat() if doc["uploaded_at"] else "",
             }
             for doc in docs

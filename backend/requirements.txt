@@ -29,3 +29,5 @@ PyMuPDF>=1.25.0
 
 # Utilities
 aiofiles>=24.1.0
+rapidfuzz>=3.9.0
+

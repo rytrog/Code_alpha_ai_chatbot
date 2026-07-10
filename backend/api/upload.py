@@ -149,55 +149,62 @@ async def upload_document(
         }
 
     # Normal RAG flow
-    if ext == "pdf":
-        pages = extract_pdf(save_path)
-    elif ext in ("txt", "csv"):
-        text_content = file_bytes.decode("utf-8", errors="ignore")
-        pages = [{"text": text_content, "page_number": 1}]
-    else:
+    if ext not in ("pdf", "txt", "csv"):
         return {"error": f"Unsupported file type: .{ext}"}
 
-    if not pages:
-        return {"error": "No text could be extracted from the file."}
-
-    chunks = chunk_pages(pages, document_name=saved_filename, source_type=source_type)
-    if not chunks:
-        return {"error": "No chunks generated from the document."}
-
-    texts = [c["text"] for c in chunks]
-    metadatas = [
-        {"document_name": c["document_name"], "page_number": c["page_number"], "source_type": c["source_type"]}
-        for c in chunks
-    ]
-    ids = [f"{saved_filename}_{i}" for i in range(len(chunks))]
-    added = await asyncio.to_thread(add_documents, texts, metadatas, ids)
-
-    # Record in PostgreSQL
-    await conn.execute(
-        "INSERT INTO documents (filename, source_type, chunk_count) VALUES (%s, %s, %s)",
-        (saved_filename, source_type, added),
-    )
-    await conn.commit()
-
-    logger.info(f"Document ingested: {saved_filename} -> {added} chunks")
-
-    # Clear answer cache so previously-failed queries can now find data
-    # from the newly uploaded file. This is safe because positive cached
-    # answers will be regenerated quickly on the next query.
     try:
+        # Perform text extraction
+        if ext == "pdf":
+            pages = await asyncio.to_thread(extract_pdf, save_path)
+        else:
+            text_content = file_bytes.decode("utf-8", errors="ignore")
+            pages = [{"text": text_content, "page_number": 1}]
+
+        # Chunk the pages (CPU-bound, run in thread pool)
+        chunks = await asyncio.to_thread(chunk_pages, pages, saved_filename, source_type)
+        total_chunks = 0
+        if chunks:
+            texts = [c["text"] for c in chunks]
+            metadatas = [
+                {
+                    "document_name": c["document_name"],
+                    "page_number": c["page_number"],
+                    "source_type": c["source_type"]
+                }
+                for c in chunks
+            ]
+            ids = [f"{saved_filename}_{i}" for i in range(len(chunks))]
+
+            # Ingest into ChromaDB (CPU-bound embedding computation, run in thread pool)
+            added = await asyncio.to_thread(add_documents, texts, metadatas, ids)
+            total_chunks = added
+
+        # Record in PostgreSQL
+        await conn.execute(
+            "INSERT INTO documents (filename, source_type, chunk_count, status) VALUES (%s, %s, %s, %s)",
+            (saved_filename, source_type, total_chunks, "completed"),
+        )
         await conn.execute("DELETE FROM answer_cache")
         await conn.commit()
-        logger.info("Answer cache cleared after new document upload.")
-    except Exception as e:
-        await conn.rollback()
-        logger.warning(f"Failed to clear answer cache: {e}")
 
-    return {
-        "message": "Document uploaded and ingested successfully.",
-        "filename": saved_filename,
-        "chunks": added,
-        "source_type": source_type,
-    }
+        logger.info(f"Document uploaded and ingested successfully: {saved_filename} -> {total_chunks} chunks")
+
+        return {
+            "message": "Document uploaded and ingested successfully.",
+            "filename": saved_filename,
+            "chunks": total_chunks,
+            "source_type": source_type,
+            "status": "completed",
+        }
+    except Exception as e:
+        logger.error(f"Failed synchronous ingestion for {saved_filename}: {e}")
+        # Insert as failed
+        await conn.execute(
+            "INSERT INTO documents (filename, source_type, chunk_count, status, error_message) VALUES (%s, %s, %s, %s, %s)",
+            (saved_filename, source_type, 0, "failed", str(e)),
+        )
+        await conn.commit()
+        return {"error": f"Ingestion failed: {str(e)}"}
 
 
 @router.delete("/documents/{doc_id}")
@@ -269,6 +276,11 @@ async def rebuild_index(conn=Depends(get_conn)):
             ids = [f"{doc['filename']}_{i}" for i in range(len(chunks))]
             added = await asyncio.to_thread(add_documents, texts, metadatas, ids)
             total_chunks += added
+            await conn.execute(
+                "UPDATE documents SET chunk_count = %s, status = 'completed', error_message = NULL WHERE id = %s",
+                (added, doc["id"]),
+            )
+            await conn.commit()
 
     logger.info(f"Index rebuilt: {total_chunks} total chunks from {len(documents)} documents")
     return {

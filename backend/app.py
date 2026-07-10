@@ -6,7 +6,11 @@ import os
 import sys
 import asyncio
 import selectors
+# Step 2: Rebuild the RAG search index
+# After saving your changes, open a terminal in the backend/ directory and run the rebuild script:
 
+# powershell
+# python rebuild_index.py
 # MUST be set before any async code runs — psycopg requires SelectorEventLoop on Windows
 if sys.platform == "win32":
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -142,9 +146,18 @@ async def lifespan(app: FastAPI):
         # Purge any stale negative answers from previous runs
         await _purge_negative_cache()
         logger.info("Database initialised. FAQ seeded. Negative cache purged.")
+        
+        # Pre-initialize ChromaDB client and collection to avoid multithreading race conditions
+        from services.rag_service import init_chroma
+        await asyncio.to_thread(init_chroma)
+        logger.info("ChromaDB initialized thread-safely.")
+
+        # Start the background ingestion worker
+        from services.ingestion_worker import start_ingestion_worker
+        await start_ingestion_worker()
     except Exception as e:
-        logger.error(f"Database startup error: {e}")
-        logger.warning("App running WITHOUT database. Chat will fail until DB is available.")
+        logger.error(f"Database/ChromaDB startup error: {e}")
+        logger.warning("App running with degraded services. Chat/RAG may fail.")
 
     # Auto-ingest AITD knowledge base in background
     ingest_task = asyncio.create_task(_background_ingest())
@@ -153,6 +166,14 @@ async def lifespan(app: FastAPI):
 
     if not ingest_task.done():
         ingest_task.cancel()
+    
+    # Stop the background ingestion worker
+    try:
+        from services.ingestion_worker import stop_ingestion_worker
+        await stop_ingestion_worker()
+    except Exception as e:
+        logger.error(f"Error stopping background ingestion worker: {e}")
+
     await close_pool()
     logger.info("Shutting down.")
 
@@ -210,29 +231,32 @@ def _is_windows():
 if __name__ == "__main__":
     import uvicorn
 
-    if _is_windows():
-        # Force SelectorEventLoop to avoid psycopg3 'ProactorEventLoop' compatibility issues
-        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        
-        config = uvicorn.Config(
-            app=app,
-            host=settings.HOST,
-            port=settings.PORT,
-            reload=False,
-            workers=1,
-            loop="asyncio",
-        )
-        server = uvicorn.Server(config)
-        loop.run_until_complete(server.serve())
-    else:
-        uvicorn.run(
-            "app:app",
-            host=settings.HOST,
-            port=settings.PORT,
-            reload=False,
-            workers=1,
-        )
+    try:
+        if _is_windows():
+            # Force SelectorEventLoop to avoid psycopg3 'ProactorEventLoop' compatibility issues
+            asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            
+            config = uvicorn.Config(
+                app="app:app",
+                host=settings.HOST,
+                port=settings.PORT,
+                reload=False,
+                workers=2,
+                loop="asyncio",
+            )
+            server = uvicorn.Server(config)
+            loop.run_until_complete(server.serve())
+        else:
+            uvicorn.run(
+                "app:app",
+                host=settings.HOST,
+                port=settings.PORT,
+                reload=False,
+                workers=2,
+            )
+    except KeyboardInterrupt:
+        logger.info("Server stopped manually via KeyboardInterrupt.")
 
 

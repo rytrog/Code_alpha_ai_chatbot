@@ -65,10 +65,10 @@ def _get_httpx_client() -> httpx.AsyncClient:
     return _HTTPX_CLIENT
 
 
-async def generate_answer(question: str, context_chunks: list[dict]) -> dict:
+async def generate_answer(question: str, context_chunks: list[dict], chat_history: list[dict] = None) -> dict:
     """
     Call the configured LLM API (Gemini, OpenAI, Anthropic, or OpenAI-compatible)
-    with retrieved context.
+    with retrieved context and conversation history.
 
     Returns {"answer": str, "source": str}.
     """
@@ -105,9 +105,19 @@ async def generate_answer(question: str, context_chunks: list[dict]) -> dict:
 
     context_text = "\n\n".join(context_parts)
 
+    # Format history turns if present
+    history_text = ""
+    if chat_history:
+        history_parts = []
+        for turn in chat_history:
+            role = "User" if turn["role"] == "user" else "Assistant"
+            history_parts.append(f"{role}: {turn['content']}")
+        history_text = "--- CONVERSATION HISTORY START ---\n" + "\n".join(history_parts) + "\n--- CONVERSATION HISTORY END ---\n\n"
+
     # Build the full prompt
     user_prompt = (
         f"{_SYSTEM_PROMPT}\n\n"
+        f"{history_text}"
         f"--- CONTEXT START ---\n{context_text}\n--- CONTEXT END ---\n\n"
         f"Question: {question}\n\n"
         f"Answer (max {settings.MAX_ANSWER_WORDS} words):"
@@ -150,7 +160,10 @@ async def generate_answer(question: str, context_chunks: list[dict]) -> dict:
                 import openai
                 is_rate_limit = isinstance(e, openai.RateLimitError) or "rate limit" in str(e).lower() or "429" in str(e)
                 if is_rate_limit and provider == "groq":
-                    fallbacks = ["llama-3.1-8b-instant", "qwen/qwen3-32b", "openai/gpt-oss-20b", "groq/compound-mini"]
+                    fallbacks = [
+                        "llama-3.3-70b-versatile",
+                        "llama-3.1-8b-instant"
+                    ]
                     fallbacks = [m for m in fallbacks if m != actual_model]
                     logger.warning(f"Groq primary model '{actual_model}' rate-limited. Trying fallbacks: {fallbacks}")
                     success = False

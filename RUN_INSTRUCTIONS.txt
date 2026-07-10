@@ -279,3 +279,78 @@ Verification successful! Bulk FAQ ingestion works perfectly!
 
 
 
+1. Google Gemini (Google AI Studio) — Cheapest & Best for RAG
+Google's Gemini 1.5 Flash model has a massive context window and is incredibly cost-efficient.
+
+Model: gemini-1.5-flash
+Pricing: Input: $0.075 / million tokens | Output: $0.30 / million tokens
+Cost per request: ~$0.00015 (less than 1/50th of a cent)
+Why choose it: Extremely high capability, massive context window (up to 1 million tokens), and the lowest pricing among tier-1 providers.
+2. Groq (Paid Tier) — Fastest Speeds
+Upgrading your free Groq key to a paid billing plan unlocks high-rate limits on Groq's custom LPU (Language Processing Unit) hardware.
+
+Model: llama-3.3-70b-versatile (Large model)
+Cost per request: ~$0.001 (1/10th of a cent)
+Model: llama-3.1-8b-instant (Small model)
+Cost per request: ~$0.00008 (1/100th of a cent)
+Why choose it: Speeds are unbeatable (generates answers almost instantly in under 1 second).
+3. OpenAI — Industry Standard
+OpenAI's flagship lightweight model is highly accurate, fast, and fully supported out-of-the-box.
+
+Model: gpt-4o-mini
+Pricing: Input: $0.150 / million tokens | Output: $0.600 / million tokens
+Cost per request: ~$0.0003 (1/30th of a cent)
+Why choose it: Standard API compatibility, high reliability, and excellent overall coding and document understanding.
+
+
+
+Provider	Recommended Model	Cost per 1 Request	Total Cost for 10,000 requests
+Google Gemini	gemini-1.5-flash	$0.00015	$1.50
+OpenAI	gpt-4o-mini	$0.00031	$3.10
+Groq (Paid)	llama-3.3-70b-versatile	$0.00100	$10.00
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+🚀 "One-Pass" Production Update Checklist
+To safely push updates in production in one pass:
+
+If updating UI/Styles: Update the script version tag in your index file (e.g. widget.js?v=2.0).
+If updating Python code: Restart the server process.
+If updating Prompts/RAG logic: Clear the SQL answer_cache table.
+If updating Document indexing: Run rebuild_index.py.
+
+
+
+
+
+
+
+
+
+How to increase FAQ Hits (Optimization Steps)
+Audit Your Logs:
+Go to the Admin Log Auditor page in your dashboard.
+Look at what questions users are asking frequently (e.g., "What is the admission last date?" or "Hostel fees").
+Add Them to the FAQ Database:
+You can upload a simple CSV file containing common Questions & Answers through the Admin Panel's Ingestion Tab (select FAQ / Q&A Dataset as the source type).
+Alternatively, these can be inserted directly into the PostgreSQL faq table.
+The Result:
+The next time a user asks one of those questions, the system will match it fuzzy-style in the database, return it instantly, increase your FAQ Hits counter, and lower your Avg Response time from 2012 ms!

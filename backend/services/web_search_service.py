@@ -11,6 +11,7 @@ queries don't need to re-scrape.
 import re
 import asyncio
 import httpx
+from config import settings
 from utils.logger import logger
 
 # ── Known AITD website pages mapped by topic ──
@@ -80,6 +81,41 @@ _TOPIC_KEYWORDS = {
     "general": ["history", "vision", "mission", "about", "established",
                  "aitd", "aith", "ambedkar", "divyangjan"],
 }
+
+# High-accuracy mapping of page names to content keywords
+URL_KEYWORDS = {
+    "department_computer_science": ["computer", "cse", "cs ", "programming", "software", "coding"],
+    "department_IT": ["information", "it ", " it", "network"],
+    "department_electrronic_engg": ["electronic", "electronics", " el ", "ece", "instrumentation"],
+    "department_bio_technology": ["bio", "biotech", "biotechnology", "biological"],
+    "department_chem_engineering": ["chemical", "chem"],
+    "department_applied_science": ["applied", "science", "math", "physics", "chemistry", "humanities"],
+    "department_architectural_assistantship": ["architect", "architecture", "diploma arch", "drawing"],
+    "department_modern_office": ["modern office", "mop", "management", "billing", "secretariat"],
+    "student_hostel": ["hostel", "mess", "accommodation", "stay", "room", "food", "dining", "boys hostel", "girls hostel"],
+    "aboutlibrary": ["library", "book", "journal", "read", "library hours", "e-library"],
+    "academic_pro_degree": ["degree", "b.tech", "btech", "m.tech", "mtech", "seat matrix", "degree admissions"],
+    "academic_pro_diploma": ["diploma", "polytechnic", "diploma admissions", "counselling"],
+    "director": ["director", "rachna", "asthana", "head of institute", "principal"],
+    "dean_committee": ["dean", "committee", "administration", "members", "council"],
+    "training_placement": ["placement", "package", "salary", "recruiter", "company", "training", "internship", "t&p", "tcs", "wipro", "infosys", "job", "career"],
+    "contact_us": ["contact", "phone", "email", "address", "office hours", "number", "helpline", "support"],
+    "anti_ragging": ["ragging", "anti-ragging", "helpline", "grievance", "complaint", "discipline"],
+    "history_and_motivation": ["history", "establish", "founded", "background", "motive", "origin", "about"],
+    "vision_mission": ["vision", "mission", "goals", "objective"]
+}
+
+
+def _get_url_score(url: str, query: str) -> int:
+    """Calculate query matching relevance score for a given AITD page URL."""
+    query_lower = query.lower()
+    page_name = url.split('/')[-1].replace('.aspx', '').replace('.html', '')
+    keywords = URL_KEYWORDS.get(page_name, [])
+    score = 0
+    for kw in keywords:
+        if kw in query_lower:
+            score += 1
+    return score
 
 
 def _detect_topics(query: str) -> list[str]:
@@ -162,14 +198,19 @@ async def search_website(query: str) -> list[dict]:
             seen.add(url)
             unique_urls.append(url)
 
-    # Cap at 5 pages to avoid slow responses
-    unique_urls = unique_urls[:5]
-
     if not unique_urls:
         logger.info("Web search: no relevant AITD pages found for query topics.")
         return []
 
-    logger.info(f"Web search: scraping {len(unique_urls)} pages for topics {topics}")
+    # Sort URLs by keyword relevance score (highest first)
+    # Python's sort is stable, so original order is preserved for equal scores.
+    unique_urls.sort(key=lambda u: _get_url_score(u, query), reverse=True)
+
+    # Limit the concurrency dynamically using settings.WEB_SCRAPE_LIMIT
+    scrape_limit = getattr(settings, "WEB_SCRAPE_LIMIT", 3)
+    unique_urls = unique_urls[:scrape_limit]
+
+    logger.info(f"Web search: scraping top {len(unique_urls)} pages (limit={scrape_limit}) for query '{query}'")
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -178,40 +219,46 @@ async def search_website(query: str) -> list[dict]:
         "Referer": "https://aitd.ac.in/",
     }
 
-    chunks = []
-    async with httpx.AsyncClient(timeout=15.0, follow_redirects=True, headers=headers) as client:
-        for url in unique_urls:
+    async with httpx.AsyncClient(timeout=3.0, follow_redirects=True, headers=headers) as client:
+        async def fetch_page(url: str) -> dict | None:
             try:
                 response = await client.get(url)
                 if response.status_code != 200:
                     logger.warning(f"Web search: {url} returned status {response.status_code}")
-                    continue
+                    return None
 
                 text = _extract_text_from_html(response.text)
 
                 # Skip if extracted text is too short to be useful
                 if len(text) < 50:
                     logger.warning(f"Web search: {url} extracted text too short ({len(text)} chars)")
-                    continue
+                    return None
 
                 # Trim to reasonable size (first 3000 chars of useful content)
                 if len(text) > 3000:
                     text = text[:3000]
 
                 page_name = url.split('/')[-1].replace('.aspx', '').replace('.html', '')
-                chunks.append({
+                logger.info(f"Web search: scraped {url} -> {len(text)} chars")
+                return {
                     "text": text,
                     "document_name": f"aitd.ac.in/{page_name}",
                     "page_number": 0,
                     "source_type": "website",
                     "relevance_score": 0.5,
-                })
-                logger.info(f"Web search: scraped {url} -> {len(text)} chars")
-
+                }
             except httpx.TimeoutException:
                 logger.warning(f"Web search: timeout scraping {url}")
             except Exception as e:
                 logger.warning(f"Web search: error scraping {url}: {e}")
+            return None
+
+        # Gather all scraping tasks concurrently
+        tasks = [fetch_page(url) for url in unique_urls]
+        results = await asyncio.gather(*tasks)
+        
+        # Filter out failed scrapes
+        chunks = [r for r in results if r is not None]
 
     logger.info(f"Web search: returned {len(chunks)} chunks from website")
     return chunks

@@ -26,6 +26,22 @@
     sessionId = "sess_fallback_" + Math.random().toString(36).substring(2, 15) + "_" + Date.now();
   }
 
+  // Get or create unique client ID (persists across browser restarts in localStorage)
+  var clientId = null;
+  try {
+    clientId = localStorage.getItem("aitd_chat_client_id");
+    if (!clientId) {
+      if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+        clientId = crypto.randomUUID();
+      } else {
+        clientId = "client_" + Math.random().toString(36).substring(2, 15) + "_" + Date.now();
+      }
+      localStorage.setItem("aitd_chat_client_id", clientId);
+    }
+  } catch (e) {
+    clientId = "client_fallback_" + Math.random().toString(36).substring(2, 15) + "_" + Date.now();
+  }
+
   // ── Google Maps URL ──
   var GMAPS_URL = "https://www.google.com/maps/place/Dr.+Ambedkar+Institute+of+Technology+for+Divyangjan/@26.5020023,80.2764365,17z";
 
@@ -35,9 +51,9 @@
     if (script && script.src) {
       var parts = script.src.split("/");
       parts.pop();
-      return parts.join("/") + "/assets/new_logo.png";
+      return parts.join("/") + "/assets/assistant.png";
     }
-    return "assets/new_logo.png";
+    return "assets/assistant.png";
   })();
 
   // ── Icon path (relative to widget directory) ──
@@ -46,9 +62,9 @@
     if (script && script.src) {
       var parts = script.src.split("/");
       parts.pop();
-      return parts.join("/") + "/assets/new_logo.png";
+      return parts.join("/") + "/assets/assistant.png";
     }
-    return "assets/new_logo.png";
+    return "assets/assistant.png";
   })();
 
 
@@ -60,19 +76,23 @@
   style.textContent = '\
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");\
 \
-#ua-toggle-btn {\
+#ua-toggle-container {\
   position: fixed;\
   bottom: 24px;\
   right: 24px;\
-  width: 58px;\
-  height: 58px;\
+  z-index: 99999;\
+  animation: ua-float 3s ease-in-out infinite;\
+}\
+\
+#ua-toggle-btn {\
+  width: 52px;\
+  height: 52px;\
   border-radius: 50%;\
   border: none;\
   background: #1a365d;\
   color: #fff;\
   font-size: 26px;\
   cursor: pointer;\
-  z-index: 99999;\
   box-shadow: 0 4px 16px rgba(26,54,93,.4);\
   display: flex;\
   align-items: center;\
@@ -90,9 +110,15 @@
 }\
 #ua-toggle-btn img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }\
 \
+@keyframes ua-float {\
+  0% { transform: translateY(0); }\
+  50% { transform: translateY(-8px); }\
+  100% { transform: translateY(0); }\
+}\
+\
 #ua-chat-window {\
   position: fixed;\
-  bottom: 96px;\
+  bottom: 90px;\
   right: 24px;\
   width: 400px;\
   height: 560px;\
@@ -276,12 +302,16 @@
 #ua-map-overlay-gmaps:hover { background: rgba(255,255,255,0.25); }\
 \
 @media (max-width: 768px) {\
+  #ua-chat-window.ua-visible ~ #ua-toggle-container {\
+    display: none;\
+  }\
   #ua-chat-window {\
     bottom: 0 !important; right: 0 !important;\
     width: 100vw !important; height: 100vh !important;\
     border-radius: 0 !important;\
   }\
-  #ua-toggle-btn { bottom: 16px; right: 16px; width: 52px; height: 52px; }\
+  #ua-toggle-container { bottom: 16px; right: 16px; }\
+  #ua-toggle-btn { width: 46px; height: 46px; }\
 }\
   ';
   document.head.appendChild(style);
@@ -337,13 +367,6 @@
   // HTML STRUCTURE
   // ══════════════════════════════════════════════════════════
 
-  // Toggle button
-  var toggleBtn = document.createElement("button");
-  toggleBtn.id = "ua-toggle-btn";
-  toggleBtn.setAttribute("aria-label", "Open AITD Chatbot");
-  toggleBtn.innerHTML = '<img src="' + ICON_PATH + '" alt="AITD Chatbot Icon" />';
-  document.body.appendChild(toggleBtn);
-
   // Chat window
   var chatWindow = document.createElement("div");
   chatWindow.id = "ua-chat-window";
@@ -370,6 +393,16 @@
     </div>\
   ';
   document.body.appendChild(chatWindow);
+
+  // Toggle button (Appended after chatWindow for CSS sibling selector mapping)
+  var toggleContainer = document.createElement("div");
+  toggleContainer.id = "ua-toggle-container";
+  var toggleBtn = document.createElement("button");
+  toggleBtn.id = "ua-toggle-btn";
+  toggleBtn.setAttribute("aria-label", "Open AITD Chatbot");
+  toggleBtn.innerHTML = '<div style="font-size: 9px; font-weight: 700; line-height: 1.2; text-align: center; text-transform: uppercase; font-family: \'Inter\', sans-serif; letter-spacing: 0.3px; color: #fff; padding: 0 4px; box-sizing: border-box;">AI<br>CHATBOT</div>';
+  toggleContainer.appendChild(toggleBtn);
+  document.body.appendChild(toggleContainer);
 
   // Map zoom overlay (appended INSIDE chat window, never escapes)
   var mapOverlay = document.createElement("div");
@@ -472,9 +505,9 @@
         inTable = false;
       }
 
-      // List items: - item or • item
-      if (/^[-•]\s+/.test(trimmed)) {
-        var itemText = trimmed.replace(/^[-•]\s+/, "");
+      // List items: - item, * item, or • item
+      if (/^[-•*]\s+/.test(trimmed)) {
+        var itemText = trimmed.replace(/^[-•*]\s+/, "");
         inList = true;
         listItems.push(inlineParse(itemText));
         continue;
@@ -613,7 +646,10 @@
 
     fetch(API_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { 
+        "Content-Type": "application/json",
+        "X-Client-ID": clientId
+      },
       body: JSON.stringify({ message: text, session_id: sessionId }),
     })
       .then(function (res) { return res.json(); })
@@ -621,7 +657,7 @@
         removeTyping();
         var answer = data.answer || data.response || "Sorry, something went wrong.";
         var source = data.source || "";
-        var isInstant = (data.response_type === "faq" || data.response_type === "cached" || data.response_type === "greeting");
+        var isInstant = (data.response_type === "faq" || data.response_type === "cached" || data.response_type === "greeting" || data.response_type === "static");
         addMessage(answer, "bot", source, isInstant);
       })
       .catch(function () {

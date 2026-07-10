@@ -1,7 +1,11 @@
 {
   "greetings": [
+    "hy",
+    "bot",
+    "hi bot",
     "hello",
     "hi",
+    "hi there",
     "hey",
     "greetings",
     "good morning",
@@ -49,12 +53,14 @@
   "identity_response": "Hello! I am the official enquiry assistant for Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur. I am here to help you with information about admissions, fees, courses, placements, hostel facilities, departments, faculty, and other AITD-related matters. How can I assist you today?",
   "developer_queries": [
     "who made you",
+    "who developed you",
     "who created you",
     "who is the developer",
     "who are the developers",
     "developer team",
     "developers",
     "creator",
+    "who is your creator",
     "creators",
     "origin of this chatbot",
     "origin of the chatbot",
@@ -79,7 +85,7 @@
     "who programmed you",
     "who make you"
   ],
-  "developer_response": "I was designed and engineered by team **AI Innovators** from the Department of Artificial Intelligence and Machine Learning, AITD Kanpur, under the supervision of Project Head **Prof. Sri Nath Dwivedi Sir**.\n\n### 👥 Developer Team\n\n| Member Name | Roll Number | Department |\n| :--- | :--- | :--- |\n| **Prof. Sri Nath Dwivedi** (Project Head) | - | Department of CSE & CS(AI&ML) |\n| **Vishal Kumar** | 2401661539007 | Artificial Intelligence & Machine Learning |\n| **Vishakhdutt Mishra** | 2401661539006 | Artificial Intelligence & Machine Learning |\n| **Awadhesh Pratap Choudhary** | 2401661539002 | Artificial Intelligence & Machine Learning |\n| **Indrakesh Kumar Goyal** | 2401661539003 | Artificial Intelligence & Machine Learning |",
+  "developer_response": "I was designed and engineered by team **AI Innovators** from the Department of Artificial Intelligence and Machine Learning, AITD Kanpur, under the supervision of Project Head **Prof. Sri Nath Dwivedi Sir**.\n\n### 👥 Developer Team\n\n| Member Name | Roll Number | Department |\n| :--- | :--- | :--- |\n| **Prof. Sri Nath Dwivedi**  | PROJECT HEAD | Department of CSE & CS(AI&ML) |\n| **Vishal Kumar** | 2401661539007 | Artificial Intelligence & Machine Learning |\n| **Awadhesh Pratap** | 2401661539002 | Artificial Intelligence & Machine Learning |\n| **Vishakhdutt Mishra** | 2401661539006 | Artificial Intelligence & Machine Learning |\n| **Indrakesh Kumar Goyal** | 2401661539003 | Artificial Intelligence & Machine Learning |",
   "location_queries": [
     "where is aitd",
     "where is aitd kanpur",
@@ -105,7 +111,8 @@
     "how to reach aitd kanpur",
     "directions to aitd",
     "aitd kanpur directions",
-    "reach aitd"
+    "reach aitd",
+    "location"
   ],
   "location_response": "\ud83d\udccd **Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur**\n\n**Address:**\nAwadhpuri, Opposite Rama Dental College,\nKhyora, Kanpur, Uttar Pradesh \u2014 208024\n\n**Major Routes:**\n\n\ud83d\udfe2 **Route A** (~11 km from Kanpur Central Railway Station)\nKanpur Central \u2192 GT Road \u2192 Rawatpur Crossing \u2192 Awadhpuri \u2192 AITD\n\n\ud83d\udfe0 **Route B** (~2.5 km from Rawatpur Railway Station)\nRawatpur Station \u2192 Kakadeo \u2192 Awadhpuri \u2192 AITD\n\n\ud83d\udfe2 **Route C** (from Jhakarkati Bus Stand)\nJhakarkati Bus Stand \u2192 GT Road \u2192 Rawatpur Crossing \u2192 Awadhpuri \u2192 AITD\n\nClick the route map below for a visual guide.\n\n[MAP_ROUTE]"
 }

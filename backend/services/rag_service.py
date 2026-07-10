@@ -15,13 +15,16 @@ from chromadb.config import Settings as ChromaSettings
 from config import settings
 from utils.logger import logger
 
-# ── Lazy ChromaDB client (initialised on first access) ──
+import threading
+from chromadb import EmbeddingFunction, Documents, Embeddings
+
+# ── Lazy ChromaDB client & collection (initialised on first access) ──
 _chroma_client = None
+_collection = None
+_chroma_lock = threading.RLock()
 
 COLLECTION_NAME = "university_docs"
 
-
-from chromadb import EmbeddingFunction, Documents, Embeddings
 
 class GeminiEmbeddingFunction(EmbeddingFunction):
     """Custom embedding function using Google Gemini API to save container RAM."""
@@ -51,6 +54,9 @@ class GeminiEmbeddingFunction(EmbeddingFunction):
 
 def _get_embedding_function():
     """Determine the embedding function based on Gemini API key availability to minimize RAM usage."""
+    # Temporarily disabled remote API check to use local embedding function (saves startup time)
+    return None
+
     api_key = settings.GEMINI_API_KEY
     if not api_key or api_key == "SET_YOUR_GEMINI_API_KEY_HERE":
         if settings.LLM_PROVIDER.lower().strip() == "gemini":
@@ -81,39 +87,53 @@ def _get_client():
     """Get or create the ChromaDB client (lazy singleton)."""
     global _chroma_client
     if _chroma_client is None:
-        logger.info("Initializing ChromaDB client (first access)...")
-        _chroma_client = chromadb.PersistentClient(
-            path=settings.CHROMA_PATH,
-            settings=ChromaSettings(anonymized_telemetry=False),
-        )
-        logger.info("ChromaDB client initialized.")
+        with _chroma_lock:
+            if _chroma_client is None:
+                logger.info("Initializing ChromaDB client (first access)...")
+                _chroma_client = chromadb.PersistentClient(
+                    path=settings.CHROMA_PATH,
+                    settings=ChromaSettings(anonymized_telemetry=False),
+                )
+                logger.info("ChromaDB client initialized.")
     return _chroma_client
 
 
 def _get_collection():
     """Get or create the university docs collection."""
-    ef = _get_embedding_function()
-    if ef is None:
-        from chromadb.utils import embedding_functions
-        ef = embedding_functions.DefaultEmbeddingFunction()
-        
-    try:
-        return _get_client().get_or_create_collection(
-            name=COLLECTION_NAME,
-            embedding_function=ef,
-            metadata={"hnsw:space": "cosine"},
-        )
-    except Exception as e:
-        logger.warning(f"Error loading ChromaDB collection, recreating due to model change/dimension mismatch: {e}")
-        try:
-            _get_client().delete_collection(name=COLLECTION_NAME)
-        except Exception as de:
-            logger.error(f"Could not delete collection: {de}")
-        return _get_client().get_or_create_collection(
-            name=COLLECTION_NAME,
-            embedding_function=ef,
-            metadata={"hnsw:space": "cosine"},
-        )
+    global _collection
+    if _collection is None:
+        with _chroma_lock:
+            if _collection is None:
+                ef = _get_embedding_function()
+                if ef is None:
+                    from chromadb.utils import embedding_functions
+                    ef = embedding_functions.DefaultEmbeddingFunction()
+                    
+                client = _get_client()
+                try:
+                    _collection = client.get_or_create_collection(
+                        name=COLLECTION_NAME,
+                        embedding_function=ef,
+                        metadata={"hnsw:space": "cosine"},
+                    )
+                except Exception as e:
+                    logger.warning(f"Error loading ChromaDB collection, recreating due to model change/dimension mismatch: {e}")
+                    try:
+                        client.delete_collection(name=COLLECTION_NAME)
+                    except Exception as de:
+                        logger.error(f"Could not delete collection: {de}")
+                    _collection = client.get_or_create_collection(
+                        name=COLLECTION_NAME,
+                        embedding_function=ef,
+                        metadata={"hnsw:space": "cosine"},
+                    )
+    return _collection
+
+
+def init_chroma() -> None:
+    """Pre-initialize ChromaDB client and collection to avoid multithreaded race conditions."""
+    _get_collection()
+
 
 
 
@@ -231,11 +251,15 @@ def add_documents(
 
 def delete_collection() -> None:
     """Delete the entire collection (for rebuild)."""
-    try:
-        _get_client().delete_collection(name=COLLECTION_NAME)
-        logger.info("ChromaDB collection deleted for rebuild.")
-    except Exception as e:
-        logger.warning(f"Could not delete collection: {e}")
+    global _collection
+    with _chroma_lock:
+        try:
+            _get_client().delete_collection(name=COLLECTION_NAME)
+            logger.info("ChromaDB collection deleted for rebuild.")
+        except Exception as e:
+            logger.warning(f"Could not delete collection: {e}")
+        finally:
+            _collection = None
 
 
 def delete_document_chunks(document_name: str) -> None:

@@ -41,13 +41,18 @@ class Settings(BaseSettings):
     MAX_UPLOAD_SIZE_MB: int = 10
     ALLOWED_EXTENSIONS: list[str] = ["pdf", "csv", "txt"]
 
-    # ── Rate limiting (per IP) ──
+    # ── Rate limiting (Dual-Layer: Session & IP) ──
     RATE_LIMIT_REQUESTS: int = 100
     RATE_LIMIT_WINDOW_SECONDS: int = 3600
+    SESSION_LIMIT_MIN: int = 20
+    SESSION_LIMIT_HOUR: int = 100
+    IP_LIMIT_HOUR: int = 300
 
     # ── Chat ──
     MAX_MESSAGE_LENGTH: int = 500
     MAX_ANSWER_WORDS: int = 200
+    ENABLE_CONVERSATIONAL_MEMORY: bool = True
+    MAX_MEMORY_TURNS: int = 4
 
     # ── Logging ──
     LOG_LEVEL: str = "INFO"
@@ -59,6 +64,7 @@ class Settings(BaseSettings):
     RAG_TOP_K: int = 6                # Final chunks sent to LLM (optimized for rate limits)
     RAG_CANDIDATE_POOL: int = 40      # Large pool fetched from ChromaDB for re-ranking
     RAG_RELEVANCE_THRESHOLD: float = 0.15  # Minimum cosine similarity (permissive for broad matching)
+    WEB_SCRAPE_LIMIT: int = 3         # Maximum unique URLs to scrape concurrently during fallback
 
     model_config = {
         "env_file": str(BASE_DIR / ".env"),

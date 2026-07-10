@@ -44,42 +44,42 @@ def test_endpoints():
     assert res.get("status") == "healthy", "App unhealthy"
 
     print("\n=== Testing Chat (Greeting Stage) ===")
-    status, res = make_request("POST", "/api/chat", {"message": "hello"})
+    status, res = make_request("POST", "/api/chat", {"message": "hello", "session_id": "test_session_greeting"})
     print(f"Status: {status}")
     print("Response:", res)
     assert status == 200, "Greeting test failed"
     assert res.get("response_type") == "greeting", "Should route to greeting"
 
     print("\n=== Testing Chat (Static Stage - Location) ===")
-    status, res = make_request("POST", "/api/chat", {"message": "where is AITD kanpur"})
+    status, res = make_request("POST", "/api/chat", {"message": "where is AITD kanpur", "session_id": "test_session_location"})
     print(f"Status: {status}")
     print("Response:", res)
     assert status == 200, "Static Location test failed"
     assert res.get("response_type") == "static", "Should route to static"
 
     print("\n=== Testing Chat (Static Stage - Developer) ===")
-    status, res = make_request("POST", "/api/chat", {"message": "who created you"})
+    status, res = make_request("POST", "/api/chat", {"message": "who created you", "session_id": "test_session_developer"})
     print(f"Status: {status}")
     print("Response:", res)
     assert status == 200, "Static Developer test failed"
     assert res.get("response_type") == "static", "Should route to static"
 
     print("\n=== Testing Chat (Static Stage - Contact) ===")
-    status, res = make_request("POST", "/api/chat", {"message": "what is the contact number"})
+    status, res = make_request("POST", "/api/chat", {"message": "what is the contact number", "session_id": "test_session_contact"})
     print(f"Status: {status}")
     print("Response:", res)
     assert status == 200, "Static Contact test failed"
     assert res.get("response_type") == "static", "Should route to static"
 
     print("\n=== Testing Chat (FAQ Stage) ===")
-    status, res = make_request("POST", "/api/chat", {"message": "what is the hostel fee?"})
+    status, res = make_request("POST", "/api/chat", {"message": "what is the hostel fee?", "session_id": "test_session_faq"})
     print(f"Status: {status}")
     print("Response:", res)
     assert status == 200, "FAQ test failed"
     assert res.get("response_type") == "faq", "Should route to FAQ"
 
     print("\n=== Testing Chat (Out-of-Scope Stage) ===")
-    status, res = make_request("POST", "/api/chat", {"message": "who won IPL yesterday?"})
+    status, res = make_request("POST", "/api/chat", {"message": "who won IPL yesterday?", "session_id": "test_session_out_of_scope"})
     print(f"Status: {status}")
     print("Response:", res)
     assert status == 200, "Out-of-scope test failed"

@@ -29,5 +29,5 @@ RUN mkdir -p /data/uploads /data/chroma /data/logs
 EXPOSE 8000
 
 # Run with uvicorn (1 worker to fit under 512MB Render RAM limit)
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
 
