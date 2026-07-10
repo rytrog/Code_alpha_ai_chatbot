@@ -110,12 +110,22 @@ class MockCursor:
             
         elif "INSERT INTO faq" in sql:
             if len(self.params) == 4:
-                q, norm_key, a, cat = self.params
+                q = self.params[0]
+                norm_key = self.params[1]
+                a = self.params[2]
+                cat = self.params[3]
                 src = "seed"
             elif len(self.params) == 5:
-                q, norm_key, a, cat, src = self.params
+                q = self.params[0]
+                norm_key = self.params[1]
+                a = self.params[2]
+                cat = self.params[3]
+                src = self.params[4]
             else:
-                q, norm_key, a, src = self.params
+                q = self.params[0]
+                norm_key = self.params[1]
+                a = self.params[2]
+                src = self.params[3]
                 cat = "general"
                 
             col = _get_collection("faq")
@@ -176,7 +186,9 @@ class MockCursor:
             self.rowcount = 1
 
         elif "INSERT INTO answer_cache" in sql:
-            norm_key, answer, source = self.params[:3]
+            norm_key = self.params[0]
+            answer = self.params[1]
+            source = self.params[2]
             col = _get_collection("answer_cache")
             col.upsert(
                 ids=[norm_key],
@@ -341,7 +353,9 @@ class MockCursor:
 
         # 4. Chat History Queries (Memory)
         elif "INSERT INTO chat_history" in sql:
-            session_id, role, content = self.params
+            session_id = self.params[0]
+            role = self.params[1]
+            content = self.params[2]
             col = _get_collection("chat_history")
             msg_id = f"{session_id}_{datetime.now(timezone.utc).timestamp()}_{uuid.uuid4().hex[:4]}"
             col.add(
@@ -417,7 +431,11 @@ class MockCursor:
 
         # 5. Chat Logs Queries (Analytics)
         elif "INSERT INTO chat_logs" in sql:
-            question, answer, source, response_type, response_time_ms = self.params
+            question = self.params[0]
+            answer = self.params[1]
+            source = self.params[2]
+            response_type = self.params[3]
+            response_time_ms = self.params[4]
             col = _get_collection("chat_logs")
             log_id = f"log_{uuid.uuid4().hex}"
             col.add(
