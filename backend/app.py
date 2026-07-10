@@ -4,6 +4,8 @@ Modular monolithic architecture with async PostgreSQL + ChromaDB.
 """
 import os
 import sys
+# Add backend directory to sys.path to resolve local imports correctly when run from root
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import asyncio
 import selectors
 # Step 2: Rebuild the RAG search index
