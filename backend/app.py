@@ -218,12 +218,8 @@ if os.path.isdir(admin_dir):
 
 @app.get("/")
 async def root():
-    return {
-        "name": settings.APP_NAME,
-        "version": "1.0.0",
-        "docs": "/docs",
-        "health": "/api/health",
-    }
+    from fastapi.responses import RedirectResponse
+    return RedirectResponse(url="/widget/chatbot.html")
 
 
 def _is_windows():
