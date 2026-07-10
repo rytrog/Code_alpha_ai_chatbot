@@ -1,6 +1,11 @@
 # University AI Chatbot Platform
 
-A production-ready AI chatbot for government university websites. Built with **FastAPI**, **PostgreSQL**, **ChromaDB**, and **Gemini 2.5 Flash**.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Python: 3.11+](https://img.shields.io/badge/Python-3.11+-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Deployment: Render](https://img.shields.io/badge/Deployment-Render-46a3a3.svg?style=for-the-badge&logo=render&logoColor=white)](https://render.com)
+[![Database: ChromaDB](https://img.shields.io/badge/Database-ChromaDB-00ffcc.svg?style=for-the-badge)](https://trychroma.com)
+
+A production-ready AI chatbot for government university websites. Built with **FastAPI**, **ChromaDB** (fully in-process, no Postgres needed!), and **Gemini / Groq LLMs**.
 
 ## Features
 
@@ -9,14 +14,12 @@ A production-ready AI chatbot for government university websites. Built with **F
 - **RAG Engine**: ChromaDB vector search with source citations
 - **Admin Panel**: Dashboard analytics, document management, chat logs
 - **Chat Widget**: Single `<script>` tag integration, desktop floating + mobile fullscreen
-- **50+ Concurrent Users**: Async PostgreSQL + Uvicorn workers
+- **Lightweight & Serverless DB**: ChromaDB local database layer (no external PostgreSQL required)
 
 ## Quick Start
 
 ### Prerequisites
 - Python 3.11+
-- PostgreSQL 14+
-- Docker & Docker Compose (for containerized deployment)
 
 ### Local Development
 
