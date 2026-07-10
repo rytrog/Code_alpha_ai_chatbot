@@ -1,0 +1,387 @@
+# AITD Campus Navigation Guide
+
+## Campus Overview
+Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur has an inclusive, barrier-free 15-acre campus designed for independent mobility and equal access for all students, including Divyangjan (Persons with Disabilities).
+
+## Campus Entry Points
+
+### Main Gate
+#### Location
+Located directly on Awadhpuri to barsaitpur Road in oppsition of Rama Dental College ,Khyora, Kanpur.
+#### Nearby Landmark
+Located opposite Rama Dental College.
+#### Directions
+Main entry point for all vehicles, students,staff, guests, and daily commuters. Follow the main driveway straight to reach the security checkpoint which is Second Gate.
+
+### Second Gate
+#### Location
+Located approximately 100 meters inside the campus from the Main Gate,which is Security Gate.
+#### Connected Roads
+Connected directly to the Main Gate driveway and the inner campus pathways,in middle of this road there is mess for college students.
+#### Available Paths
+from Second gate it splits into two primary routes: the Right Path (leading to Main Building,Girls Hostel,Playground and the Faculty residence) and the Left Path (leading to the backyard Canteen,New H-block,, and Biotechnology departments,Chemical departments,Polytechnic Wing).
+
+---
+
+# Campus Navigation
+
+## Route from Main Gate to Second Gate
+Walk straight from the Main Gate along the wide filled with trees,flowers plants,greenery,paved driveway for approximately 100 meters to reach the Second Gate.
+### Walking Distance
+Approximately 100 meters.
+### Estimated Walking Time
+Around 1 to 2 minutes at a regular pace.
+### Landmarks
+Pass the administrative boundary and the outer campus gardens on your right.
+
+---
+
+## Route from Second Gate to Main Academic Building
+From the Second Gate, you can choose Right turn path main routes to reach the Main Academic Building.
+
+### Right Path
+#### Distance
+Approximately 50 meters.
+#### Buildings Passed
+Passes H Block and B Block on your left.
+#### Destination
+Leads directly to the front main entrance of the Main Academic Building, there is a bigger playground when you go straight ahead.
+
+### Left Path
+#### Distance
+Approximately 50 meters.
+#### Buildings Passed
+Passes the H-Block on your Right side and after going 50 meters you will Biotechnology Department and Chemical Engineering Department building on your right side.
+#### Destination
+Leads to the backyard canteen,New H-Block, Biotechnology departments,Chemical departments,Polytechnic Wing.. 
+
+---
+
+# Main Academic Building
+
+## Ground Floor
+The main hub for student services, administration,Scholarship Cell, Academic Office, Academic Directorate, Computer Laboratory,Director Office and support offices.
+
+### Reception Hall
+#### Waiting Area
+A spacious, comfortable seating hall directly inside the main entrance for visitors and students.
+#### Student Help Area
+Located near the reception desk to assist with admissions, schedules, and general queries.
+#### Lift
+A lift in front of both hallway connected with left and right side of Reception Area and it is equipped with an accessible elevator providing easy travel to the upper floors.
+#### Staircase
+Located when you go straight to left hallway then take left turn you will find the stairs and when you go straight to right hallway then take right turn you reach in Workshop and laboratories all branches.
+
+---
+
+## Academic Section
+
+### Academic Office
+Located on the Ground Floor of the Main Academic Building. walk to the right corridor and take first left turn; the office is on the left corridor, or you can make direct queris from waiting area.
+
+### Computer Laboratory
+The primary ground floor programming lab is situated in the first left room,in Rigth hallway.
+
+### Director Office
+Located on the Ground Floor of the Main Academic Building, next to the Computer Laboratory and director office for official interactions.
+
+### Scholarship Section
+Located on the Ground Floor of the Main Academic Building,in right hallway from main entrance process fee waivers and reimbursements.
+
+---
+
+## First Floor
+Houses main academic learning facilities and quiet study environments.
+
+### Library
+The Central Library is located on the First Floor,In front of Seminar Hall, containing textbook sections, reference books, and academic journals.
+
+### Reading Hall
+A spacious, quiet study area situated inside the Central Library for students and faculty.
+
+### Computer Laboratory
+Additional computer labs for advanced programming and online tests are located on the First Floor when you further go to Right hallway after passing library from lift.
+
+### Lift Access
+Fully accessible lift lobby situated on the First Floor corridor connect with Seminar Hall and with  all floors.
+
+---
+
+## Academic Blocks
+
+### B Block
+#### Departments
+Computer Science Engineering (CSE) and Artificial Intelligence and Machine Learning (AI & ML).
+#### Student Year
+Second Year classes and laboratories are conducted here.
+
+---
+
+### F Block
+#### Location
+Situated directly behind the Main Academic Building.
+#### Departments
+Computer Science and Engineering.
+#### Facilities
+Features state-of-the-art computer laboratories and HOD offices.
+
+---
+
+### H Block
+#### Overview
+The newest and most modern academic block on campus.
+#### Laboratories
+Equipped with Electrical and Electronics engineering labs.
+#### Classrooms
+Spacious lecture halls and smart classrooms.
+
+---
+
+# Departments
+
+## Computer Science Engineering
+### Location
+Located in B Block.
+### Nearby Landmark
+in front of seminar Hall after AI&ML Lab.
+### How to Reach
+From the Second Gate, take the Right Path, pass in to main entrance, and take lift B Block is immediately on your left.
+
+---
+
+## Artificial Intelligence and Machine Learning
+### Location
+Located on the second floor of B Block.
+### Nearby Landmark
+Adjacent to the CSE labs.
+### How to Reach
+From the Second Gate, follow the Right Path to B Block, enter the building, and take the stairs/ramp/lift to the second floor.
+
+---
+
+## Biotechnology Department
+### Building
+Located in entire New Section.
+### Nearby Facilities
+Behind the Main Academic Building.
+### Route
+From the Second Gate, take the Left Path, pass the H-block, and follow the walkway.
+
+---
+
+## Electrical Engineering Department
+### Building
+Located in inner building Block.
+### Route
+From lift take left hallway to straight ahead and take left  turn.
+
+---
+
+## Chemical Engineering Department
+### Building
+Located in the lab block adjacent to H Block.
+### Route
+From the Second Gate, take the Right Path, pass H Block, and turn left into the Chemical Engineering wing.
+
+---
+
+## Polytechnic Diploma Wing
+### Overview
+Dedicated wing for all diploma courses.
+### Location
+Located towards the rear end of the academic zone.
+### Classrooms
+Equipped with specialized diploma classrooms.
+### Workshops
+Features mechanical, electrical, and carpentry workshops.
+
+---
+
+# Student Facilities
+
+## Library
+### Location
+First Floor of the Main Academic Building.
+### Floor
+First Floor (1st Floor).
+### Nearby Rooms
+Reading Hall and First Floor Computer Lab.
+
+---
+
+## Scholarship Cell
+### Location
+Ground Floor of the Main Academic Building.
+### Nearby Offices
+Academic Office and Student Help desk.
+
+---
+
+## Director Office
+### Floor
+Ground Floor (Ground Floor).
+### Nearby Rooms
+Reception Hall and Academic Directorate.
+
+---
+
+## Academic Office
+### Ground Floor
+Ground Floor (Ground Floor).
+### Services
+Student admissions, marksheet distribution, registration, and administrative records.
+
+---
+
+## Computer Laboratories
+### Ground Floor Labs
+Used for regular class programming and basic computer training.
+### First Floor Labs
+Used for advanced project work, web development, and digital exams.
+
+---
+
+## Playground
+### Location
+Located adjacent to the Girls Hostel and the Main Canteen.
+### Nearby Buildings
+Canteen, Girls Hostel, and Faculty Staff Quarters.
+### Route
+From the Second Gate, take the Left Path and walk straight for 150 meters. The playground is on your right.
+
+---
+
+## Girls Hostel
+### Location
+Situated in the secure residential zone at the Right back side of the campus.
+### Route
+From the Second Gate, take the Right Path, pass the playground, and follow the road to the secure girls' residential gates.
+### Nearby Landmark
+Adjacent to the Main Building and staff quarters.
+
+---
+
+## Faculty Staff Quarters
+### Location
+Situated opposite the playground and next to the Girls Hostel.
+### Nearby Playground
+Located directly opposite the quarters driveway.
+
+---
+
+## Student Mess
+
+### Main Mess
+#### Location
+Located in the Biotechnology Department area.
+#### Eligible Students
+All Degree Wing hostel residents.
+
+---
+
+### Polytechnic Mess
+#### Location
+Located near the Polytechnic Wing residential area.
+#### Eligible Students
+All Polytechnic Wing hostel residents.
+
+---
+
+# Common Navigation Queries
+
+## From Main Gate
+
+### To Director Office
+Enter the Main Gate, walk 100 meters to the Second Gate, take the Right Path, enter the Main Academic Building, and the Director Office is on the Ground Floor near the Academic Office.
+
+### To Library
+Enter the Main Gate, walk to the Second Gate, take Right Path to the Main Academic Building, and take the lift or stairs to the First Floor.
+
+### To Scholarship Cell
+Enter the Main Gate, walk to the Second Gate, take the Right Path, enter the Main Academic Building, and go to the Ground Floor in left hallway from waiting area.
+
+### To Academic Office
+Enter the Main Gate, walk to the Second Gate, take the Right Path, enter the Main Academic Building, and locate the office on the Ground Floor corridor on the Right side.
+
+### To Playground
+Enter the Main Gate, walk to the Second Gate, take the Right Path, pass the Main building towards the left. The playground is on your left.
+
+### To Girls Hostel
+Enter the Main Gate, walk to the Second Gate, take the Right Path, pass the Main building towards the left and walk straight for 150 meters. Girls Hostel is one more turn away to left.
+
+### To Biotechnology Department
+Enter the Main Gate, walk to the Second Gate, take the Left Path, and follow the path behind the Main Academic Building to E Block.
+
+### To Polytechnic Wing
+Enter the Main Gate, walk to the Second Gate, take the Left Path, pass E Block, and continue straight to the Polytechnic Wing.
+
+### To H Block
+Enter the Main Gate, walk to the Second Gate, take the Left Path. H Block is the first building on your right.
+
+### To B Block
+Enter the Main Gate, walk to the Second Gate, take the Right Path, enter in main academic building and go to left hallway the first left turn is B Block.
+
+### To F Block
+Enter the Main Gate, walk to the Second Gate, take the Right Path, enter in main academic building and go to left hallway or take lift to reach in f block.
+
+### To Computer Laboratory
+Enter the Main Gate, walk to the Second Gate, take the Right Path, enter the Main Academic Building. Labs are on the Ground and First Floors.
+
+### To Mess
+Enter the Main Gate, walk to the Second Gate, take the Left Path, and walk past the h block to the hostel mess hall.
+
+---
+
+# Campus Facilities
+
+## Drinking Water
+Purified, cold drinking water units are installed on every floor of the Main Academic Building and near all academic blocks.
+
+## Washrooms
+Separate, clean, and wheelchair-accessible washrooms are available on all floors of the Main Academic Building and inside all blocks.
+
+## Lift
+An elevator is available inside the Main Academic Building for Divyangjan accessibility and student convenience.
+
+## Accessibility Facilities
+Ramps, tactile paths, wheelchair-friendly toilets, and lifts are provided across all academic and residential buildings.
+
+## Parking
+Dedicated parking zones for student and staff vehicles are located near the Second Gate.
+
+## Waiting Hall
+A seating area is available on the Ground Floor of the Main Academic Building next to the reception.
+
+## Security
+24/7 security guard monitoring and CCTV surveillance are active across the entire campus, including academic blocks and residential zones.
+
+## Greenery
+The campus is known for its lush greenery and beautiful natural surroundings. There are many trees, gardens, and parks throughout the campus, making it a pleasant place to walk around and enjoy nature. The greenery also contributes to the peaceful and serene atmosphere of the campus.
+
+---
+
+# Keywords
+Main Gate
+Second Gate
+Academic Building
+Director Office
+Library
+Scholarship Cell
+Academic Office
+B Block
+F Block
+H Block
+Computer Lab
+Playground
+Girls Hostel
+Faculty Hostel
+Mess
+Polytechnic
+Biotechnology
+Electrical Department
+Chemical Department
+Lift
+Washroom
+Water Facility
+Campus Navigation
+Directions

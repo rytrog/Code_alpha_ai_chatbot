@@ -1,0 +1,201 @@
+
+# Scholarship Documents Checklist
+
+## Overview
+
+This document is a structured RAG-ready checklist of documents commonly required for scholarship applications. Requirements vary depending on the scholarship scheme, institute, and government department. Verify all requirements with the latest official notification before submission.
+
+# Core Documents
+
+## Identity Documents
+
+### Aadhaar Card
+- Aadhaar card of the student
+- Aadhaar should be linked with the registered mobile number
+- Recommended to be linked with the bank account for DBT
+
+### Passport Size Photographs
+- Recent passport-size colour photographs
+- As per scholarship portal specifications
+
+### Bank Passbook
+- Student's bank passbook
+- Account holder name
+- Account number
+- IFSC code
+- Active account for Direct Benefit Transfer (DBT)
+
+# Academic Documents
+
+## Admission Documents
+
+### Admission Letter
+### Allotment Letter (if applicable)
+### Institute Admission Receipt
+
+## Educational Certificates
+
+### Class 10 Marksheet and Certificate
+### Class 12 Marksheet and Certificate
+### Previous Semester Marksheet
+### Latest Semester Result
+### Transfer Certificate (if required)
+### Migration Certificate (if required)
+
+## Institute Verification Documents
+
+### Bonafide Certificate
+### Fee Structure
+### Fee Receipt
+### Student Identity Card
+### Enrollment Number
+### Registration Number
+
+# Financial Documents
+
+## Income Certificate
+
+### Requirements
+- Issued by the competent authority
+- Valid for the applicable academic session
+- Income limit depends on the scholarship scheme
+
+## Family Details
+- Parent/Guardian details
+- Occupation details (if required)
+
+# Residence Documents
+
+## Domicile Certificate
+
+### Purpose
+Proof of permanent residence where required.
+
+## Residence Proof
+- Residence certificate
+- Address proof if requested
+
+# Category Documents
+
+## SC Certificate
+## ST Certificate
+## OBC Certificate
+## EWS Certificate
+## Minority Certificate (where applicable)
+
+# Disability Documents
+
+## Disability Certificate
+
+### Requirements
+- Issued by an authorized medical board
+- Percentage of disability mentioned
+- Valid certificate
+
+## UDID Card
+
+### Purpose
+Unique Disability Identity Card for eligible students.
+
+# Bank and DBT Documents
+
+## Bank Account
+- Student-owned account preferred
+- Active account
+
+## Aadhaar Seeding
+- Aadhaar linked to bank account
+
+## NPCI Mapping
+- Recommended for successful DBT transfer
+
+# Scholarship Portal Documents
+
+## National Scholarship Portal
+- Registration details
+- Application ID
+- OTR (if applicable)
+
+## State Scholarship Portal
+- Registration number
+- Institute verification
+- Final submission acknowledgement
+
+# Renewal Documents
+
+## Academic Progress
+- Previous year marksheet
+- Promotion to next semester/year
+
+## Attendance
+- Attendance record if required
+
+## Renewal Receipt
+- Previous scholarship details if applicable
+
+# Additional Supporting Documents
+
+## Affidavit
+## Gap Certificate
+## Character Certificate
+## Medical Certificate (if required)
+## Hostel Certificate (if applicable)
+## Internship or Training Certificate (if required)
+
+# Verification Process
+
+## Student Verification
+## Institute Verification
+## District Verification
+## State Verification
+## Scholarship Authority Approval
+## DBT Disbursement
+
+# Common Reasons for Rejection
+
+## Incorrect Aadhaar Details
+## Bank Account Mismatch
+## Invalid Income Certificate
+## Missing Documents
+## Incorrect Category Certificate
+## Duplicate Applications
+## Late Submission
+## Incomplete Verification
+
+# Best Practices
+
+## Before Applying
+- Read official guidelines
+- Check eligibility
+- Prepare scanned copies
+- Verify document validity
+
+## Before Final Submission
+- Review uploaded documents
+- Verify bank details
+- Save acknowledgement receipt
+- Track application status regularly
+
+# Keywords
+
+Scholarship Documents
+Aadhaar
+Income Certificate
+Bonafide Certificate
+Fee Receipt
+Bank Passbook
+DBT
+UDID
+Disability Certificate
+Domicile
+Caste Certificate
+EWS
+OBC
+SC
+ST
+Scholarship Renewal
+Institute Verification
+State Verification
+NSP
+UP Scholarship
+Application Documents

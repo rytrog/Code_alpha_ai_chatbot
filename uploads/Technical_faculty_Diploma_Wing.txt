@@ -1,0 +1,157 @@
+```markdown
+# Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+
+## Administrative Staff
+
+### Diploma Wing
+
+#### Department Information
+
+Institute: Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+
+Department Name: Administrative Technical Staff
+
+Wing: Diploma Wing
+
+Category: Administrative Staff
+
+Total Staff Members: 8
+
+---
+
+#### Staff Directory
+
+##### Staff Member
+
+Name: Dheeraj Kumar Pandey
+
+Designation: Assistant Registrar
+
+Department: Administrative Technical Staff
+
+Wing: Diploma Wing
+
+Institute: Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+
+---
+
+##### Staff Member
+
+Name: Dharmendra Singh Sirohi
+
+Designation: Computer Programmer
+
+Department: Administrative Technical Staff
+
+Wing: Diploma Wing
+
+Institute: Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+
+---
+
+##### Staff Member
+
+Name: Vijay Kumar
+
+Designation: Foreman
+
+Department: Administrative Technical Staff
+
+Wing: Diploma Wing
+
+Institute: Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+
+---
+
+##### Staff Member
+
+Name: Pramod Kumar Singh Bhadauria
+
+Designation: P.A. to Director
+
+Department: Administrative Technical Staff
+
+Wing: Diploma Wing
+
+Institute: Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+
+---
+
+##### Staff Member
+
+Name: Shivam Pandey
+
+Designation: Store Keeper
+
+Department: Administrative Technical Staff
+
+Wing: Diploma Wing
+
+Institute: Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+
+---
+
+##### Staff Member
+
+Name: Sapana Sonker
+
+Designation: Data Entry Operator
+
+Department: Administrative Technical Staff
+
+Wing: Diploma Wing
+
+Institute: Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+
+---
+
+##### Staff Member
+
+Name: Monika Savita
+
+Designation: Data Entry Operator
+
+Department: Administrative Technical Staff
+
+Wing: Diploma Wing
+
+Institute: Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+
+---
+
+##### Staff Member
+
+Name: Ranbir Singh Yadav
+
+Designation: Junior Clerk
+
+Department: Administrative Technical Staff
+
+Wing: Diploma Wing
+
+Institute: Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+
+---
+
+#### Department Statistics
+
+Total Staff Members: 8
+
+---
+
+#### Designation Summary
+
+Assistant Registrar : 1
+
+Computer Programmer : 1
+
+Foreman : 1
+
+P.A. to Director : 1
+
+Store Keeper : 1
+
+Data Entry Operator : 2
+
+Junior Clerk : 1
+```

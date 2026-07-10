@@ -1,0 +1,233 @@
+# Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+
+## B.Tech Programs
+
+### Computer Science & Engineering (Artificial Intelligence & Machine Learning)
+
+#### Program Overview
+
+Program Name: B.Tech Computer Science & Engineering (Artificial Intelligence & Machine Learning)
+
+Institute: Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+
+Degree: Bachelor of Technology (B.Tech)
+
+Specialization: Artificial Intelligence & Machine Learning
+
+Duration: 4 Years (8 Semesters)
+
+Affiliation: Dr. A.P.J. Abdul Kalam Technical University (AKTU)
+
+Approval: AICTE (All India Council for Technical Education)
+
+Intake Capacity: 60 Seats
+
+---
+
+#### Program Description
+
+The B.Tech Computer Science & Engineering (Artificial Intelligence & Machine Learning) programme at AITD Kanpur offers a comprehensive undergraduate curriculum designed to equip students with advanced knowledge in Computer Science along with specialized Artificial Intelligence and Machine Learning technologies.
+
+---
+
+## Eligibility & Admission
+
+### Admission Eligibility
+
+Educational Qualification:
+
+10+2 (Intermediate)
+
+Required Subjects:
+
+Physics
+
+Chemistry
+
+Mathematics (PCM)
+
+---
+
+### Admission Process
+
+JEE Main Examination
+
+UPTAC / AKTU Counselling
+
+---
+
+## Fee Structure
+
+### Programme Fee
+
+Approximate Total Fee:
+
+₹2.2 – ₹2.9 Lakh
+
+Note:
+
+The fee may vary depending on the academic session.
+
+---
+
+## Curriculum
+
+### Core Computer Science Subjects
+
+C Programming
+
+C++ Programming
+
+Data Structures & Algorithms (DSA)
+
+Database Management System (DBMS)
+
+Operating Systems
+
+Computer Networks
+
+Software Engineering
+
+Web Technologies
+
+Cloud Computing
+
+---
+
+### Artificial Intelligence & Machine Learning Subjects
+
+Artificial Intelligence
+
+Machine Learning
+
+Deep Learning
+
+Data Science
+
+Natural Language Processing (NLP)
+
+Computer Vision
+
+Neural Networks
+
+Big Data Analytics
+
+---
+
+## Laboratories & Facilities
+
+### Academic Facilities
+
+Computer Laboratories
+
+Smart Classrooms
+
+Department Servers
+
+Wi-Fi Enabled Campus
+
+Networking & AI Laboratories
+
+---
+
+## Technical Skills
+
+### Skills Recommended for Students
+
+Python
+
+Data Structures & Algorithms (DSA)
+
+Machine Learning
+
+Deep Learning
+
+SQL
+
+Git
+
+GitHub
+
+Web Development
+
+Cloud Computing
+
+---
+
+## Career Opportunities
+
+### Career Roles
+
+Artificial Intelligence Engineer
+
+Machine Learning Engineer
+
+Data Scientist
+
+Data Analyst
+
+Software Developer
+
+Python Developer
+
+Cloud Engineer
+
+Research Assistant
+
+---
+
+## Four-Year Learning Roadmap
+
+### First Year
+
+C Programming
+
+Python
+
+Basic Data Structures & Algorithms
+
+Git
+
+---
+
+### Second Year
+
+Advanced Data Structures & Algorithms
+
+Database Management System (DBMS)
+
+Operating Systems
+
+Computer Networks
+
+---
+
+### Third Year
+
+Machine Learning
+
+Deep Learning
+
+Artificial Intelligence Projects
+
+---
+
+### Fourth Year
+
+Major Project
+
+Industrial Internship
+
+Placement Preparation
+
+---
+
+## Important Programme Note
+
+### Specialization Information
+
+The Artificial Intelligence & Machine Learning (AI & ML) branch is a specialization under the Computer Science & Engineering (CSE) programme.
+
+It is not a separate academic department.
+
+The specialization focuses primarily on Artificial Intelligence and Machine Learning technologies while retaining the core Computer Science curriculum.

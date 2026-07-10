@@ -1,0 +1,207 @@
+# Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+# Training & Placement Cell
+# Consolidated Placement & Internship Statistics (Session 2023–2024)
+
+> **Document Note:** This consolidated document merges overall placement statistics, highlights, package distributions, company-wise and branch-wise placement summaries, internship structures, and analytical placement trends for the 2024 placement session. Detailed individual student profiles, granular company directories, and full internship logs are maintained in separate dedicated RAG repositories to avoid duplicate knowledge.
+
+---
+
+## 1. Placement Overview
+
+* **Placement Year:** 2024
+* **Placement Session:** 2023–2024
+* **Institute:** Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+* **Academic Wing:** Degree Wing
+* **Managed By:** Training & Placement Cell
+
+---
+
+## 2. Overall Placement Highlights
+
+* **Highest Package:** 50 LPA (Offered by Microsoft to Srajan Agrawal, Computer Science, September 2023)
+* **Second Highest Package:** 10 LPA (Offered by Growupp)
+* **Third Highest Package:** 8 LPA (Offered by TVS Motors)
+* **Highest Number of Recruitments:** Pie Infocomm
+* **Most Active Recruiter:** Rinex Technologies
+* **Largest Recruitment Drive:** Pie Infocomm
+* **Highest Internship Participation:** Computer Science (CS) & Information Technology (IT)
+* **Highest Paying Branch:** Computer Science (CS)
+* **Top Paying Companies:**
+  * Microsoft
+  * Growupp
+  * TVS Motors
+  * Plan Realty
+  * Pie Infocomm
+  * Technip Energies
+  * PwC
+  * SIEMENS
+  * Veolia Water Technologies & Solutions
+
+---
+
+## 3. Package Distribution & Student Counts
+
+* **50 LPA**
+  * Company: Microsoft
+  * Student Count: 1 Student
+* **10 LPA**
+  * Company: Growupp
+  * Student Count: 2 Students
+* **8 LPA**
+  * Company: TVS Motors
+  * Student Count: 2 Students
+* **7.2 LPA**
+  * Company: Plan Realty
+  * Student Count: 2 Students
+* **6.5 LPA**
+  * Companies: Pie Infocomm, Technip Energies, Planet Spark
+  * Student Count: 10+ Students
+* **6 LPA**
+  * Companies: PwC, SIEMENS, Veolia Water Technologies & Solutions
+  * Student Count: 8+ Students
+* **5.2 LPA**
+  * Company: Rinex Technologies
+  * Student Count: 12+ Students
+* **4.5 LPA**
+  * Company: Accenture
+  * Student Count: 7 Students
+* **4 LPA**
+  * Company: BYJU'S
+  * Student Count: 1 Student
+* **3.75 LPA**
+  * Company: Ericsson
+  * Student Count: 6 Students
+* **3.6 LPA**
+  * Companies: Tech Mahindra, Scoplife Pvt. Ltd.
+  * Student Count: 6+ Students
+* **3.5 LPA**
+  * Companies: Step2gen Technologies, Realty Assistant Pvt. Ltd.
+  * Student Count: 8+ Students
+* **3 LPA**
+  * Company: Healthwatch
+  * Student Count: 1 Student
+* **2.77 LPA**
+  * Company: Refu Drive India Pvt. Ltd.
+  * Student Count: 1 Student
+* **2.6 LPA**
+  * Company: Marelli Motherson Automotive
+  * Student Count: 8+ Students
+* **2 LPA**
+  * Company: SuVagmi
+  * Student Count: 1 Student
+* **1.80 LPA**
+  * Company: AL-ZOYA Overseas Pvt. Ltd.
+  * Student Count: 2 Students
+
+---
+
+## 4. Company-wise Recruitment Summary
+
+Below is the verified breakdown of total student selections per recruiting organization:
+
+* **Rinex Technologies:** 15+ Students
+* **Pie Infocomm:** 10+ Students
+* **Marelli Motherson Automotive:** 8+ Students
+* **Accenture:** 7 Students
+* **Ericsson:** 6 Students
+* **Tech Mahindra:** 5 Students
+* **Step2gen Technologies:** 5 Students
+* **PwC:** 4 Students
+* **Realty Assistant Pvt. Ltd.:** 4 Students
+* **Veolia Water Technologies & Solutions:** 4+ Students
+* **Growupp:** 2 Students
+* **TVS Motors:** 2 Students
+* **Plan Realty:** 2 Students
+* **AL-ZOYA Overseas Pvt. Ltd.:** 2 Students
+* **Microsoft:** 1 Student
+* **Technip Energies:** 1 Student
+* **SIEMENS:** 1 Student
+* **BYJU'S:** 1 Student
+* **Planet Spark:** 1 Student
+* **Refu Drive India Pvt. Ltd.:** 1 Student
+* **Healthwatch:** 1 Student
+* **SuVagmi:** 1 Student
+
+---
+
+## 5. Branch-wise Placement & Recruiter Breakdown
+
+### Computer Science (CS)
+* **Highest Package:** 50 LPA
+* **Recruiters / Offers Received From:** Microsoft, TVS Motors, PwC, Veolia Water Technologies & Solutions, Pie Infocomm, Rinex Technologies, Accenture, Step2gen Technologies, Initializ.
+
+### Information Technology (IT)
+* **Highest Package:** 6.5 LPA
+* **Recruiters / Offers Received From:** Pie Infocomm, SIEMENS, Rinex Technologies, Accenture, Tech Mahindra, Step2gen Technologies, Initializ, Citi Campus, VDAI Bio Sec.
+
+### Electronics Engineering (EL)
+* **Highest Package:** 10 LPA
+* **Recruiters / Offers Received From:** Growupp, Plan Realty, Pie Infocomm, Rinex Technologies, Ericsson, Tech Mahindra, Step2gen Technologies, Realty Assistant Pvt. Ltd., Marelli Motherson Automotive, BYJU'S, SuVagmi.
+
+### Chemical Engineering (CH)
+* **Highest Package:** 10 LPA
+* **Recruiters / Offers Received From:** Growupp, Plan Realty, Technip Energies, Veolia Water Technologies & Solutions, Rinex Technologies, Realty Assistant Pvt. Ltd., Marelli Motherson Automotive, Planet Spark.
+
+### Biotechnology (BT)
+* **Highest Package:** 6.5 LPA
+* **Recruiters / Offers Received From:** Pie Infocomm, Rinex Technologies, Healthwatch, AL-ZOYA Overseas Pvt. Ltd.
+
+---
+
+## 6. Placement Categories & Internship Statistics
+
+### Full-Time Placements
+* **Engagement Streams:** Campus Placement, Industry Recruitment, Graduate Employment.
+
+### Internship Opportunities
+* **Internship Types:** Industrial Internship, Paid Internship, Summer Internship, Training Internships.
+* **Key Internship Hiring Companies:** Initializ, Citi Campus, Veolia Water Technologies & Solutions, VDAI Bio Sec.
+
+### Multiple Offer Statistics
+* **Availability Status:** Verified and Available.
+* Several students successfully secured more than one placement offer, as well as concurrent placement and internship offers across different organizations during this session.
+* *Note: Granular breakdowns are logged within the 'Placement_2024_Multiple_Offers_Internships' document.*
+
+---
+
+## 7. Comprehensive Search Keywords
+
+AITD Placement Statistics, Placement 2024, Branch-wise Placement, Package-wise Placement, Company-wise Placement, Highest Package, Average Package, Top Recruiters, Highest Paying Branch, Placement Analysis, Placement Summary, Dr. Ambedkar Institute of Technology for Divyangjan, Microsoft Placement, Computer Science Placement, Information Technology Placement, Electronics Placement, Chemical Engineering Placement, Biotechnology Placement, Campus Recruitment, Highest Salary, Placement Record.
+
+---
+
+## 8. Frequently Asked Questions (FAQs)
+
+#### Q1: What is the highest package offered in Placement 2024, and who received it?
+**A:** The highest package offered was 50 LPA, secured by student Srajan Agrawal from the Computer Science (CS) branch, recruited by Microsoft in September 2023.
+
+#### Q2: Which company offered the highest package?
+**A:** Microsoft.
+
+#### Q3: Which companies offered a package of 10 LPA?
+**A:** Growupp offered a 10 LPA package (selecting 2 students).
+
+#### Q4: Which companies offered packages higher than 6 LPA?
+**A:** Microsoft (50 LPA), Growupp (10 LPA), TVS Motors (8 LPA), Plan Realty (7.2 LPA), Pie Infocomm (6.5 LPA), Technip Energies (6.5 LPA), Planet Spark (6.5 LPA), PwC (6 LPA), SIEMENS (6 LPA), and Veolia Water Technologies & Solutions (6 LPA).
+
+#### Q5: Which branch received the highest package and emerged as the highest-paying branch?
+**A:** The Computer Science (CS) branch received the highest package of 50 LPA.
+
+#### Q6: Which branch had the highest placement numbers or highest internship participation?
+**A:** Computer Science (CS) and Information Technology (IT) fields observed the highest internship and drive participation rates.
+
+#### Q7: Which company recruited the maximum number of students?
+**A:** Rinex Technologies was the most active recruiter overall with 15+ student selections, while Pie Infocomm held the largest single recruitment drive with 10+ students.
+
+#### Q8: Which engineering branches participated in the 2024 placement session?
+**A:** Five major branches participated: Computer Science (CS), Information Technology (IT), Electronics Engineering (EL), Chemical Engineering (CH), and Biotechnology (BT).
+
+#### Q9: Does the 2024 placement record include internship profiles?
+**A:** Yes, the session covers Industrial, Paid, and Summer Internships with companies like Initializ, Citi Campus, Veolia, and VDAI Bio Sec.
+
+#### Q10: Where can I find granular student-level, branch-level, or company-level placement directories?
+**A:** These metrics are tracked across the following targeted master files:
+* Student Profiles: `Placement_2024_Student_Directory`
+* Company Matrix: `Placement_2024_Company_Directory`
+* Branch Statistics: `Placement_2024_Branch_Statistics`
+* Dual Offers & Internships: `Placement_2024_Multiple_Offers_Internships`

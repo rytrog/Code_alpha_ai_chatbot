@@ -1,0 +1,267 @@
+Dr. Ambedkar Institute of Technology for Divyangjan (AITD), Kanpur
+
+Degree Wing
+
+Department of Electronics Engineering
+
+Department Overview
+
+The Department of Electronics Engineering at Dr. Ambedkar Institute of
+Technology for Divyangjan (AITD), Kanpur was established in 2004. The
+department is specially designed for Divyang students and provides
+quality technical education through modern laboratories, smart
+classrooms, experienced faculty members, research activities,
+innovation, and outcome-based education.
+
+Department Name: Electronics Engineering
+
+Academic Wing: Degree Wing
+
+Institute: Dr. Ambedkar Institute of Technology for Divyangjan (AITD),
+Kanpur
+
+Established: 2004
+
+Program Offered: B.Tech. (60 Intake)
+
+------------------------------------------------------------------------
+
+Quick Facts
+
+Department Established: 2004
+
+Program: Bachelor of Technology (B.Tech.)
+
+Approved Intake: 60 Students
+
+IEEE Subsection: Available
+
+Centre of Excellence: Texas Instruments
+
+Learning Model: Outcome-Based Education
+
+Infrastructure: Smart Classrooms & Modern Laboratories
+
+------------------------------------------------------------------------
+
+Vision
+
+To prepare competent Electronics Engineering graduates who effectively
+contribute towards building a harmonious society through environmentally
+friendly technological solutions.
+
+------------------------------------------------------------------------
+
+Mission
+
+M1: Provide state-of-the-art technical education.
+
+M2: Develop leadership, transparency, accountability, and professional
+ethics.
+
+M3: Enhance faculty knowledge through pedagogical activities.
+
+M4: Develop advanced laboratories for practical learning.
+
+M5: Create an inclusive environment for higher education and industry
+readiness.
+
+------------------------------------------------------------------------
+
+Program Educational Objectives (PEOs)
+
+PEO1: Build strong engineering fundamentals for careers in academia,
+industry, and entrepreneurship.
+
+PEO2: Develop technical skills to solve real-world engineering problems
+using economical and environmentally friendly approaches.
+
+PEO3: Develop communication, management, leadership, and teamwork
+skills.
+
+------------------------------------------------------------------------
+
+Program Outcomes (PO1–PO12)
+
+PO1 Engineering Knowledge
+
+PO2 Problem Analysis
+
+PO3 Design & Development of Solutions
+
+PO4 Investigation of Complex Problems
+
+PO5 Modern Tool Usage
+
+PO6 Engineer and Society
+
+PO7 Environment & Sustainability
+
+PO8 Professional Ethics
+
+PO9 Individual & Teamwork
+
+PO10 Effective Communication
+
+PO11 Project Management & Finance
+
+PO12 Life-long Learning
+
+------------------------------------------------------------------------
+
+Department Highlights
+
+-   Outcome-Based Education
+-   IEEE Subsection
+-   Technical Competitions
+-   Research Activities
+-   Innovation Programs
+-   Expert Webinars
+-   Alumni Interaction
+-   Skill Enhancement Programs
+-   Interdisciplinary Activities
+
+------------------------------------------------------------------------
+
+Centre of Excellence
+
+Texas Instruments Centre of Excellence
+
+Specialization Areas:
+
+-   Linear Circuit Design
+-   Embedded System Design
+
+------------------------------------------------------------------------
+
+Laboratories
+
+-   Electronics Circuits Laboratory
+-   PCB Design & Electronic Workshop
+-   Digital & Logic Design Laboratory
+-   Network Engineering Laboratory
+-   Electronic Measurement Laboratory
+-   Communication Systems Laboratory
+-   Control Systems Laboratory
+-   Fibre Optics Laboratory
+-   Microwave & Antenna Design Laboratory
+-   CAD Laboratory
+
+------------------------------------------------------------------------
+
+Infrastructure
+
+-   Smart Classrooms
+-   Latest Hardware
+-   Modern Software
+-   Advanced Laboratory Equipment
+-   Experienced Faculty
+
+------------------------------------------------------------------------
+
+Academic Activities
+
+-   Technical Programs
+-   Technical Competitions
+-   IEEE Activities
+-   Research Initiatives
+-   Innovation Activities
+-   Webinars
+-   Alumni Sessions
+-   Skill Development
+
+------------------------------------------------------------------------
+
+Student Project Directory
+
+1.  Self Driving Technology using OpenCV and Raspberry Pi — Guide:
+    Mrs. Shweta Tripathi
+2.  Voice Isolation using Artificial Neural Network — Guide: Mr. C.P.
+    Varma
+3.  Performance Analysis of MIMO Cooperative System — Guide: Dr. Vikash
+    Sachan
+4.  Rice Quality Analysis using Image Processing Techniques — Guide:
+    Ms. Prerna Srivastava
+5.  Smart Safeguard Device — Guide: Ms. Eti Srivastava
+6.  Investigation of Uplink Sum Rate of mm-Wave Massive MIMO System —
+    Guide: Mr. B.R. Singh
+7.  Facial Recognition Attendance System using Python — Guide:
+    Mrs. Shweta Tripathi
+8.  GST Mobile Billing Application — Guide: Mr. Ravi Kumar Kanaujia
+9.  Efficient Data Hiding by Dual Steganography — Guide: Ms. Prerna
+    Srivastava
+10. Online Examination Portal — Guide: Mr. Ankur Srivastava
+11. IoT Based Health Monitoring System for Comatose Patient — Guide:
+    Mrs. Sandhya Sinha
+12. Analysis of Spatially Modulated MIMO System Employing Nakagami-m
+    Fading Channel — Guide: Dr. Vikash Sachan
+13. IoT Based Home Automation — Guide: Mrs. Sandhya Sinha
+14. Finger Print Based Voting Machine — Guide: Mr. B.R. Singh
+15. Face Recognition using Subspace Approaches — Guide: Mr. Ravi Kumar
+    Kanaujia
+16. Credit Card Fraud Detection using Predictive Modelling — Guide:
+    Mr. Ankur Srivastava
+17. Automatic COVID-19 Assistance Smart Library — Guide: Ms. Prerna
+    Srivastava
+18. Real-Time Face Detection and Recognition Based Attendance System
+    using Raspberry Pi — Guide: Mrs. Shweta Tripathi
+19. Virtual Twin — Guide: Ms. Pooja Nishad
+20. Advance Automatic Self Car Parking using Arduino — Guide:
+    Mrs. Priyanka Gautam
+21. Accident Avoiding System with Crash Detection and GPS Notification —
+    Guide: Mr. Alok Kumar
+22. 3D Printer — Guide: Mr. Vishal Shukla
+23. RFID Advanced Security using 8051 Microcontroller — Guide: Mr. Alok
+    Kumar
+24. Vehicle Engine Lock System for Theft Detection — Guide: Mr. Deepak
+    Kumar
+
+------------------------------------------------------------------------
+
+Search Keywords
+
+Electronics Engineering
+
+Embedded Systems
+
+Texas Instruments
+
+IEEE
+
+PCB Design
+
+Communication Systems
+
+Control Systems
+
+Microwave
+
+Antenna Design
+
+IoT
+
+VLSI
+
+CAD
+
+Electronics Laboratory
+
+------------------------------------------------------------------------
+
+Frequently Asked Questions
+
+Q. When was the department established? A. 2004.
+
+Q. What program is offered? A. B.Tech. in Electronics Engineering with
+an intake of 60 students.
+
+Q. Does the department have a Centre of Excellence? A. Yes, in
+collaboration with Texas Instruments.
+
+Q. What laboratories are available? A. Electronics Circuits, PCB Design,
+Digital & Logic Design, Network Engineering, Electronic Measurement,
+Communication Systems, Control Systems, Fibre Optics, Microwave &
+Antenna Design, and CAD Laboratory.
+
+Q. Does the department have IEEE activities? A. Yes. The department has
+an IEEE subsection that organizes technical programs and competitions.

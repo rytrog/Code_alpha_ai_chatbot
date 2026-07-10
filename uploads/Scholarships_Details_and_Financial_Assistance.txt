@@ -1,0 +1,158 @@
+
+# Scholarships and Financial Assistance
+
+## Overview
+This document is a structured RAG-ready template for scholarship and financial assistance information. It is intended to be reviewed and updated with verified information from the official AITD website before deployment.
+
+## Scholarships Available at AITD
+
+### Tuition Fee Waiver
+#### Overview
+AITD may provide tuition fee concessions or waivers for eligible students according to institutional and government policies.
+
+#### Eligibility
+- Divyang (PwD) students (verify from official website)
+- Other eligible categories as notified
+
+#### Coverage
+- Tuition fee waiver
+- Institutional charges (if applicable)
+- Conditions for continuation
+
+### Government Scholarship Support
+
+#### Uttar Pradesh Scholarship
+- Post-Matric Scholarship
+- Fee Reimbursement
+- Social Welfare Department support
+- Direct Benefit Transfer (DBT)
+
+#### National Scholarship Portal (NSP)
+- Central Government scholarship schemes
+- Merit-based scholarships
+- Disability scholarships
+- Category-based scholarships
+
+#### AICTE Scholarships
+- AICTE Saksham Scholarship
+- AICTE Swanath Scholarship
+- Other AICTE schemes
+
+### Private Scholarship Opportunities
+- Reliance Foundation Scholarship
+- LIC Golden Jubilee Scholarship
+- Azim Premji Foundation Scholarship
+- Other private scholarships as announced
+
+## Institutional Benefits
+
+### Hostel Food Subsidy
+#### Overview
+Food subsidy or hostel assistance, if available, should be verified from official notifications.
+
+### Free Student Facilities
+- Free uniform (if applicable)
+- Campus Wi-Fi
+- Academic support facilities
+- Assistive facilities for Divyang students
+
+## Scholarship Eligibility
+
+### Academic Eligibility
+- Minimum academic performance
+- Regular admission
+- Attendance requirements
+
+### Financial Eligibility
+- Family income criteria
+- Income certificate requirements
+
+### Category-Based Eligibility
+- SC
+- ST
+- OBC
+- EWS
+- General
+- Divyang (PwD)
+
+## Scholarship Application Process
+
+### Step 1
+Identify the applicable scholarship scheme.
+
+### Step 2
+Read eligibility conditions.
+
+### Step 3
+Collect all required documents.
+
+### Step 4
+Register on the respective scholarship portal.
+
+### Step 5
+Complete the online application.
+
+### Step 6
+Upload supporting documents.
+
+### Step 7
+Submit the application before the deadline.
+
+### Step 8
+Complete institute verification if required.
+
+### Step 9
+Track application status.
+
+### Step 10
+Receive scholarship through DBT after approval.
+
+## Scholarship Renewal
+
+### Renewal Conditions
+- Academic performance
+- Attendance
+- Continued eligibility
+- Timely renewal application
+
+## Scholarship Help
+
+### Institute Support
+- Student Section
+- Scholarship Cell
+- Academic Office
+
+### Government Support
+- State Scholarship Portal
+- National Scholarship Portal
+- AICTE Helpdesk
+
+## Important Notes
+
+- Scholarship rules may change every academic session.
+- Eligibility differs for each scheme.
+- Students should always verify information through official notifications.
+- Institute-specific policies should take precedence.
+
+## Keywords
+
+Scholarship
+Financial Assistance
+Fee Waiver
+Fee Reimbursement
+Post Matric Scholarship
+NSP
+National Scholarship Portal
+AICTE Scholarship
+Saksham Scholarship
+Swanath Scholarship
+UP Scholarship
+DBT
+Income Certificate
+Bonafide Certificate
+Divyang Scholarship
+PwD Scholarship
+Student Welfare
+AITD Scholarship
+College Scholarship
+Education Assistance
